@@ -1,0 +1,316 @@
+/* Animation keyframes */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease forwards;
+}
+
+/* Product Card Animations */
+.group:hover .group-hover\:scale-110 {
+  transform: scale(1.1);
+}
+
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
+
+.group:hover .group-hover\:translate-y-0 {
+  transform: translateY(0);
+}
+
+/* Quick View Modal Animations */
+#modal-backdrop {
+  transition: opacity 0.3s ease-out;
+}
+
+#modal-content {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out, box-shadow 0.3s ease;
+}
+
+.scale-95 {
+  transform: scale(0.95);
+}
+
+.scale-100 {
+  transform: scale(1);
+}
+
+/* Hover effects for buttons */
+.hover\:-translate-y-0\.5:hover {
+  transform: translateY(-0.125rem);
+}
+
+.hover\:-translate-y-1:hover {
+  transform: translateY(-0.25rem);
+}
+
+/* Product card image hover effect */
+.product-img-hover {
+  transition: transform 0.5s ease;
+}
+
+.product-img-hover:hover {
+  transform: scale(1.1);
+}
+
+/* Wishlist heart animation */
+.group\/heart:hover .group-hover\/heart\:text-\[\#865b13\] {
+  color: #865b13;
+  transform: scale(1.1);
+}
+
+/* Add to cart button */
+.group\/cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(134, 91, 19, 0.2);
+}
+
+/* Color and size selection buttons */
+.color-option, .size-option {
+  transition: all 0.2s ease;
+}
+
+.color-option:hover, .size-option:hover {
+  transform: translateY(-2px);
+}
+
+.color-option.selected, .size-option.selected {
+  border-color: #865b13;
+}
+
+/* Quantity control buttons */
+.quantity-btn {
+  transition: all 0.2s ease;
+}
+
+.quantity-btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* Modal opening and closing animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.modal-fade-in {
+  animation: modalFadeIn 0.3s forwards;
+}
+
+.modal-fade-out {
+  animation: modalFadeOut 0.3s forwards;
+}
+
+/* Custom scrollbar for modal */
+.modal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: #d1bfc5;
+  border-radius: 10px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #b8a3aa;
+}
+
+/* Cart button gradient and hover effects */
+.cart-btn {
+  background: linear-gradient(to right, #865b13, #a67016);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.cart-btn:hover {
+  background: linear-gradient(to right, #664510, #8b5e13);
+  box-shadow: 0 10px 15px -3px rgba(134, 91, 19, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Main CTA button styles */
+.main-cta-btn {
+  background: linear-gradient(to right, #865b13, #a67016);
+  color: white;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.main-cta-btn:hover {
+  background: linear-gradient(to right, #664510, #8b5e13);
+  box-shadow: 0 10px 25px -5px rgba(134, 91, 19, 0.35);
+  transform: translateY(-3px);
+}
+
+/* Section divider */
+.section-divider {
+  background: linear-gradient(to right, #865b13, #a67016);
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* Product overlay on hover */
+.product-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.group:hover .product-overlay {
+  opacity: 1;
+}
+
+/* Softer overlay when hovering cart button */
+.group/cart:hover ~ .product-overlay,
+.product-overlay:hover {
+  background-color: rgba(134, 91, 19, 0.15);
+}
+
+/* Modal backdrop with semi-transparent background */
+.modal-backdrop {
+  background-color: rgba(134, 91, 19, 0.25);
+  backdrop-filter: blur(3px);
+  transition: all 0.3s ease;
+}
+
+/* Body style when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+#modal-content:hover {
+  box-shadow: 0 25px 50px -12px rgba(134, 91, 19, 0.35);
+}
+
+/* Quick view button styling */
+.quick-view-btn {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #865b13;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1);
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.group:hover .quick-view-btn {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.quick-view-btn:hover {
+  background-color: #865b13;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Add styling for countdown timer components */
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.countdown-item:not(:last-child)::after {
+  content: ":";
+  position: absolute;
+  left: -15px;
+  top: 15%;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #402a32;
+}
+
+.countdown-value {
+  background: linear-gradient(145deg, #fff, #f5f5f5);
+  min-width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.05), 
+              inset 0 -2px 0 0 rgba(0, 0, 0, 0.1);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #402a32;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(217, 119, 6, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-value::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  z-index: 1;
+}
+
+.countdown-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+/* Pulse animation for seconds */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+#seconds {
+  animation: pulse 1s infinite;
+  background: linear-gradient(145deg, #fef3c7, #f59e0b33);
+}
+
+/* Add gradient to main CTA button if not already defined */
+.main-cta-btn {
+  background: linear-gradient(to right, #402a32, #55474c);
+  color: white;
+  border: none;
+}
+
+.main-cta-btn:hover {
+  background: linear-gradient(to right, #402a32, #402a32);
+} 
