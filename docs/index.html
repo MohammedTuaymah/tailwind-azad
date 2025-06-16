@@ -12,6 +12,57 @@
   <script src="https://unpkg.com/phosphor-icons"></script>
   <!-- Add Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <!-- Category Filter JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const categoryButtons = document.querySelectorAll('.category-btn');
+      const categoryProducts = document.querySelectorAll('.category-product');
+
+      // Function to handle category filtering
+      const filterProducts = (category) => {
+        categoryProducts.forEach(product => {
+          const productCategory = product.dataset.category;
+          
+          if (category === 'all' || category === productCategory) {
+            product.classList.remove('hidden');
+            setTimeout(() => {
+              product.style.opacity = '1';
+            }, 50);
+          } else {
+            product.style.opacity = '0';
+            setTimeout(() => {
+              product.classList.add('hidden');
+            }, 300);
+          }
+        });
+      };
+
+      // Add click event listeners to category buttons
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          categoryButtons.forEach(btn => {
+            btn.classList.remove('active', 'bg-amber-900', 'text-white');
+            btn.classList.add('bg-white');
+          });
+
+          // Add active class to clicked button
+          button.classList.add('active', 'bg-amber-900', 'text-white');
+          button.classList.remove('bg-white');
+
+          // Filter products based on selected category
+          const selectedCategory = button.dataset.category;
+          filterProducts(selectedCategory);
+        });
+      });
+
+      // Debug log
+      console.log('Category filter script loaded');
+      console.log('Found category buttons:', categoryButtons.length);
+      console.log('Found category products:', categoryProducts.length);
+    });
+  </script>
   <style>
     /* Apply Tajawal font to all elements */
     * {
@@ -30,6 +81,25 @@
     button{
       cursor: pointer;
       border-radius: 10px;
+    }
+
+    /* Category Products Transitions */
+    .category-product {
+      transition: all 0.3s ease-in-out;
+      opacity: 1;
+    }
+    .category-product.hidden {
+      display: none;
+      opacity: 0;
+    }
+    
+    /* Category Button Styles */
+    .category-btn {
+      transition: all 0.3s ease-in-out;
+    }
+    .category-btn.active {
+      background-color: rgb(120 53 15);
+      color: white;
     }
   </style>
 
@@ -179,14 +249,7 @@
   </header>
 
 
-
-
-
-
-
-
-
-
+  
 
 
   <!-- Hero Banner for E-commerce -->
@@ -212,40 +275,129 @@
 
       </div>
       
-      <!-- Navigation Buttons -->
-      <!-- <div class="swiper-button-next absolute left-4 transform -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 text-gray-800 flex items-center justify-center cursor-pointer hover:bg-white transition-all duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </div>
-      <div class="swiper-button-prev absolute right-4 transform -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 text-gray-800 flex items-center justify-center cursor-pointer hover:bg-white transition-all duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </div> -->
-
       
     </div>
   </div>
 
-  <!-- Initialize Swiper -->
-  <script>
-    new Swiper('.hero-swiper', {
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      effect: 'fade',
-      fadeEffect: {
-        crossFade: true
-      },
-    });
-  </script>
+
+
+
+
+
+
+  <!-- categories & their products -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Category Buttons -->
+      <div class="flex justify-center gap-3 mb-10">
+        <button class="category-btn active px-6 py-2 text-sm font-medium rounded-lg bg-amber-900 text-white transition-all duration-300" data-category="all">
+          الكل
+        </button>
+        <button class="category-btn px-6 py-2 text-sm font-medium rounded-lg bg-white hover:bg-amber-900 hover:text-white transition-all duration-300" data-category="shirts">
+          قمصان
+        </button>
+        <button class="category-btn px-6 py-2 text-sm font-medium rounded-lg bg-white hover:bg-amber-900 hover:text-white transition-all duration-300" data-category="pants">
+          بناطيل
+        </button>
+        <button class="category-btn px-6 py-2 text-sm font-medium rounded-lg bg-white hover:bg-amber-900 hover:text-white transition-all duration-300" data-category="accessories">
+          إكسسوارات
+        </button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- Product 1 - Shirt -->
+        <div class="category-product" data-category="shirts">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/1.jpg" alt="قميص كلاسيك" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">قميص كلاسيك</h3>
+              <p class="text-amber-900 font-bold">٣٥٠ ريال</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 - Shirt -->
+        <div class="category-product" data-category="shirts">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/2.jpg" alt="قميص كاجوال" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">قميص كاجوال</h3>
+              <p class="text-amber-900 font-bold">٢٨٠ ريال</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 - Pants -->
+        <div class="category-product" data-category="pants">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/3.jpg" alt="بنطلون جينز" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">بنطلون جينز</h3>
+              <p class="text-amber-900 font-bold">٤٢٥ ريال</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 - Pants -->
+        <div class="category-product" data-category="pants">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/4.jpg" alt="بنطلون كلاسيك" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">بنطلون كلاسيك</h3>
+              <p class="text-amber-900 font-bold">٣٩٠ ريال</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 - Accessories -->
+        <div class="category-product" data-category="accessories">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/5.jpg" alt="حزام جلد" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">حزام جلد</h3>
+              <p class="text-amber-900 font-bold">١٥٠ ريال</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 - Accessories -->
+        <div class="category-product" data-category="accessories">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/6.jpg" alt="محفظة جلد" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">محفظة جلد</h3>
+              <p class="text-amber-900 font-bold">٢٢٠ ريال</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <!-- categories & their products -->
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Featured Products Section -->
   <section class="py-20">
@@ -595,6 +747,8 @@
   </section>
 
 
+
+  
 
 
   <!-- Advanced Products Section -->
@@ -1597,168 +1751,169 @@
 
 
   <!-- Categories Section -->
-  <section class="py-16">
+  <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-gray-900 mb-2">جميع الأقسام</h2>
-        <p class="text-gray-500">تناسب جميع الأذواق</p>
-        <div class="flex items-center justify-center gap-2 mt-4">
-          <div class="w-16 h-[1px] bg-gray-300"></div>
-          <div class="w-2 h-2 rounded-full bg-gray-300"></div>
-          <div class="w-16 h-[1px] bg-gray-300"></div>
-        </div>
+      <div class="text-center mb-12">
+        <h2 class="text-2xl font-bold text-gray-900">تصفح حسب الفئة</h2>
       </div>
 
-      <!-- Categories Slider -->
-      <div class="categories-slider overflow-hidden relative px-10">
-        <div class="swiper-wrapper flex">
-          <!-- Category 1 - عود -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=300&fit=crop" alt="عود" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">عود</h3>
-              <p class="text-sm text-gray-500">استمتع بسحر العود</p>
-            </div>
-          </div>
+      <!-- Category Buttons -->
+      <div class="flex justify-center gap-3 mb-10">
+        <button class="category-btn active px-6 py-2 text-sm font-medium rounded-lg bg-amber-900 text-white transition-all duration-300" data-category="all">
+          الكل
+        </button>
+        <button class="category-btn px-6 py-2 text-sm font-medium rounded-lg bg-white hover:bg-amber-900 hover:text-white transition-all duration-300" data-category="shirts">
+          قمصان
+        </button>
+        <button class="category-btn px-6 py-2 text-sm font-medium rounded-lg bg-white hover:bg-amber-900 hover:text-white transition-all duration-300" data-category="pants">
+          بناطيل
+        </button>
+        <button class="category-btn px-6 py-2 text-sm font-medium rounded-lg bg-white hover:bg-amber-900 hover:text-white transition-all duration-300" data-category="accessories">
+          إكسسوارات
+        </button>
+      </div>
 
-          <!-- Category 2 - عناية بالبشرة -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=300&h=300&fit=crop" alt="عناية بالبشرة" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">عناية بالبشرة</h3>
-              <p class="text-sm text-gray-500">استمتع ببشرة نضرة</p>
+      <!-- Products Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- Product 1 - Shirt -->
+        <div class="category-product" data-category="shirts">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/1.jpg" alt="قميص كلاسيك" class="w-full h-full object-cover">
             </div>
-          </div>
-
-          <!-- Category 3 - الأظافر -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=300&h=300&fit=crop" alt="الأظافر" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">الأظافر</h3>
-              <p class="text-sm text-gray-500">اعتني بنفسك</p>
-            </div>
-          </div>
-
-          <!-- Category 4 - العناية بالشعر -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=300&h=300&fit=crop" alt="العناية بالشعر" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">العناية بالشعر</h3>
-              <p class="text-sm text-gray-500">تألق بشعر لامع</p>
-            </div>
-          </div>
-
-          <!-- Category 5 - عطور -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=300&h=300&fit=crop" alt="عطور" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">عطور</h3>
-              <p class="text-sm text-gray-500">لمسة من الأناقة</p>
-            </div>
-          </div>
-
-          <!-- Category 6 - أطفال -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=300&h=300&fit=crop" alt="أطفال" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">أطفال</h3>
-              <p class="text-sm text-gray-500">اعتني بصغيرك</p>
-            </div>
-          </div>
-
-          <!-- Category 7 - فساتين -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=300&fit=crop" alt="فساتين" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">فساتين</h3>
-              <p class="text-sm text-gray-500">أناقة الطفولة</p>
-            </div>
-          </div>
-
-          <!-- Category 8 - تيشيرتات -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop" alt="تيشيرتات" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">تيشيرتات</h3>
-              <p class="text-sm text-gray-500">تجربة مختلفة</p>
-            </div>
-          </div>
-
-          <!-- Category 9 - نظارات -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=300&h=300&fit=crop" alt="نظارات" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">نظارات</h3>
-              <p class="text-sm text-gray-500">أناقة بصرية</p>
-            </div>
-          </div>
-
-          <!-- Category 10 - أحذية -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop" alt="أحذية" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">أحذية</h3>
-              <p class="text-sm text-gray-500">جودة عالية</p>
-            </div>
-          </div>
-
-          <!-- Category 11 - حقائب -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300&h=300&fit=crop" alt="حقائب" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">حقائب</h3>
-              <p class="text-sm text-gray-500">تصاميم مبتكرة</p>
-            </div>
-          </div>
-
-          <!-- Category 12 - بطاقات رقمية -->
-          <div class="swiper-slide !w-auto">
-            <div class="text-center group px-4">
-              <div style="width: 7rem; height: 7rem;" class="mx-auto rounded-full overflow-hidden mb-4 bg-gray-50">
-                <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?w=300&h=300&fit=crop" alt="بطاقات رقمية" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-              </div>
-              <h3 class="font-semibold text-gray-900 mb-1">بطاقات رقمية</h3>
-              <p class="text-sm text-gray-500">اختيارك الأمثل</p>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">قميص كلاسيك</h3>
+              <p class="text-amber-900 font-bold">٣٥٠ ريال</p>
             </div>
           </div>
         </div>
 
-        <!-- Add Navigation -->
-        <button class="swiper-button-next !text-gray-900 !left-2 !right-auto after:!text-xl"></button>
-        <button class="swiper-button-prev !text-gray-900 !right-2 after:!text-xl"></button>
+        <!-- Product 2 - Shirt -->
+        <div class="category-product" data-category="shirts">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/2.jpg" alt="قميص كاجوال" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">قميص كاجوال</h3>
+              <p class="text-amber-900 font-bold">٢٨٠ ريال</p>
+            </div>
+          </div>
+        </div>
 
-        <!-- Add Pagination -->
-        <div class="swiper-pagination !relative !bottom-0 mt-6"></div>
+        <!-- Product 3 - Pants -->
+        <div class="category-product" data-category="pants">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/3.jpg" alt="بنطلون جينز" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">بنطلون جينز</h3>
+              <p class="text-amber-900 font-bold">٤٢٥ ريال</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 - Pants -->
+        <div class="category-product" data-category="pants">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/4.jpg" alt="بنطلون كلاسيك" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">بنطلون كلاسيك</h3>
+              <p class="text-amber-900 font-bold">٣٩٠ ريال</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 - Accessories -->
+        <div class="category-product" data-category="accessories">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/5.jpg" alt="حزام جلد" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">حزام جلد</h3>
+              <p class="text-amber-900 font-bold">١٥٠ ريال</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 - Accessories -->
+        <div class="category-product" data-category="accessories">
+          <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              <img src="./img/products/6.jpg" alt="محفظة جلد" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+              <h3 class="font-medium text-gray-900 mb-1">محفظة جلد</h3>
+              <p class="text-amber-900 font-bold">٢٢٠ ريال</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <style>
+    .category-product {
+      transition: all 0.3s ease-in-out;
+      opacity: 1;
+    }
+    .category-product.hidden {
+      display: none;
+      opacity: 0;
+    }
+    .category-btn {
+      transition: all 0.3s ease-in-out;
+    }
+    .category-btn.active {
+      background-color: rgb(120 53 15);
+      color: white;
+    }
+  </style>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const categoryButtons = document.querySelectorAll('.category-btn');
+      const categoryProducts = document.querySelectorAll('.category-product');
 
+      const filterProducts = (category) => {
+        categoryProducts.forEach(product => {
+          const productCategory = product.dataset.category;
+          
+          if (category === 'all' || category === productCategory) {
+            product.classList.remove('hidden');
+            setTimeout(() => {
+              product.style.opacity = '1';
+            }, 50);
+          } else {
+            product.style.opacity = '0';
+            setTimeout(() => {
+              product.classList.add('hidden');
+            }, 300);
+          }
+        });
+      };
 
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          categoryButtons.forEach(btn => {
+            btn.classList.remove('active', 'bg-amber-900', 'text-white');
+            btn.classList.add('bg-white');
+          });
+
+          button.classList.add('active', 'bg-amber-900', 'text-white');
+          button.classList.remove('bg-white');
+
+          const selectedCategory = button.dataset.category;
+          filterProducts(selectedCategory);
+        });
+      });
+    });
+  </script>
 
   <!-- Store Features Section -->
   <section class="py-20">
@@ -2495,6 +2650,24 @@
 
   <script src="./script.js"></script>
   
+  <!-- Initialize Swiper -->
+  <script>
+    new Swiper('.hero-swiper', {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+    });
+  </script>
   <!-- Search Modal -->
   <div id="search-modal" class="fixed inset-0 bg-white/30 backdrop-blur-sm z-50 hidden items-center justify-center">
     <div class="bg-white/80 backdrop-blur-sm w-full max-w-xl mx-4 rounded-3xl shadow-lg transform transition-all">
@@ -2549,5 +2722,6 @@
       }
     });
   </script>
+
 </body>
 </html>
