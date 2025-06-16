@@ -47,15 +47,22 @@
 
         <!--language and currency icon and search icon -->
         <div class="flex items-center space-x-reverse space-x-2">
+          <!-- Search Icon -->
+          <button id="search-button" class="w-10 h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
+
           <!-- Language Selector -->
-          <button class="w-10 h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
+          <button class="w-10 mr-2 h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
             </svg>
           </button>
 
           <!-- Currency Selector -->
-          <button class="w-10 h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
+          <button class="w-10 h-10 mr-2 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -75,13 +82,13 @@
         <!-- Call to Action -->
         <div class="hidden md:flex items-center space-x-reverse space-x-2">
           <!-- User Icon -->
-          <button class="w-10 h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
+          <button class="w-10 mr-2 h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
           </button>
           <!-- Cart Icon -->
-          <button class="w-10 h-10 rounded-full cart-btn flex items-center justify-center text-white transition-all duration-300 shadow-md hover:shadow-lg">
+          <button class="w-10 mr-2 h-10 rounded-full cart-btn flex items-center justify-center text-white transition-all duration-300 shadow-md hover:shadow-lg">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
@@ -190,47 +197,17 @@
         <!-- Slide 1 -->
         <div class="swiper-slide">
           <div class="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
-            <img src="./img/banner.jpg" alt="Hero Banner 1" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/40"></div>
-            <div class="relative text-center text-white px-4">
-              <h1 class="text-4xl md:text-5xl font-bold mb-4">أحدث تشكيلات الأزياء</h1>
-              <p class="text-lg md:text-xl mb-8">اكتشف مجموعتنا الجديدة من الأزياء العصرية</p>
-              <a href="#" class="inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors duration-300">
-                تسوق الآن
-              </a>
-            </div>
+            <img src="./img/banners/5.jpg" alt="Hero Banner 1" class="absolute inset-0 w-full h-full object-cover">
           </div>
         </div>
         
         <!-- Slide 2 -->
         <div class="swiper-slide">
           <div class="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
-            <img src="./img/gentle_banner.jpg" alt="Hero Banner 2" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/40"></div>
-            <div class="relative text-center text-white px-4">
-              <h1 class="text-4xl md:text-5xl font-bold mb-4">عروض حصرية</h1>
-              <p class="text-lg md:text-xl mb-8">خصومات تصل إلى 50% على المجموعة الجديدة</p>
-              <a href="#" class="inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors duration-300">
-                اكتشف العروض
-              </a>
-            </div>
+            <img src="./img/banners/6.jpg" alt="Hero Banner 2" class="absolute inset-0 w-full h-full object-cover">
           </div>
         </div>
         
-        <!-- Slide 3 -->
-        <!-- <div class="swiper-slide">
-          <div class="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
-            <img src="./img/gentle_banner.jpg" alt="Hero Banner 3" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/40"></div>
-            <div class="relative text-center text-white px-4">
-              <h1 class="text-4xl md:text-5xl font-bold mb-4">تصاميم عصرية</h1>
-              <p class="text-lg md:text-xl mb-8">مجموعة متميزة من أحدث صيحات الموضة</p>
-              <a href="#" class="inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors duration-300">
-                استكشف المزيد
-              </a>
-            </div>
-          </div>
-        </div> -->
 
 
       </div>
@@ -1543,7 +1520,7 @@
         <div class="md:w-[70%] h-full">
           <div class="relative h-full rounded-2xl overflow-hidden shadow-lg group">
             <!-- Banner Background -->
-            <img src="./img/banner.jpg" alt="تشكيلة جديدة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <img src="./img/banners/6.jpg" alt="تشكيلة جديدة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
             
             <!-- Overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20"></div>
@@ -1837,7 +1814,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <!-- Banner 1 -->
         <div class="relative overflow-hidden rounded-lg shadow-lg h-[180px] sm:h-[200px]">
-          <img src="./img/gentle_banner.jpg" alt="عروض خاصة" class="w-full h-full object-cover">
+          <img src="./img/banners/5.jpg" alt="عروض خاصة" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 sm:p-6">
             <div class="text-white">
               <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2">عروض خاصة</h3>
@@ -1848,7 +1825,7 @@
 
         <!-- Banner 2 -->
         <div class="relative overflow-hidden rounded-lg shadow-lg h-[180px] sm:h-[200px]">
-          <img src="./img/gentle_banner.jpg" alt="تشكيلة جديدة" class="w-full h-full object-cover">
+          <img src="./img/banners/6.jpg" alt="تشكيلة جديدة" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 sm:p-6">
             <div class="text-white">
               <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2">تشكيلة جديدة</h3>
@@ -1859,7 +1836,7 @@
 
         <!-- Banner 3 -->
         <div class="relative overflow-hidden rounded-lg shadow-lg h-[180px] sm:h-[200px]">
-          <img src="./img/gentle_banner.jpg" alt="ماركات حصرية" class="w-full h-full object-cover">
+          <img src="./img/banners/5.jpg" alt="ماركات حصرية" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 sm:p-6">
             <div class="text-white">
               <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2">ماركات حصرية</h3>
@@ -1883,7 +1860,7 @@
   </style>
 
   <!-- Categories Section -->
-  <section class="py-20 relative bg-cover bg-center bg-no-repeat" style="background-image: url('./img/gentle_banner.jpg');">
+  <section class="py-20 relative bg-cover bg-center bg-no-repeat" style="background-image: url('./img/banners/5.jpg');">
     <div>
     <!-- Background Overlay -->
     <div class="absolute inset-0 bg-white/80"></div>
@@ -2518,5 +2495,59 @@
 
   <script src="./script.js"></script>
   
+  <!-- Search Modal -->
+  <div id="search-modal" class="fixed inset-0 bg-white/30 backdrop-blur-sm z-50 hidden items-center justify-center">
+    <div class="bg-white/80 backdrop-blur-sm w-full max-w-xl mx-4 rounded-3xl shadow-lg transform transition-all">
+      <div class="relative p-4">
+        <div class="relative">
+          <input type="text" placeholder="ابحث هنا..." class="w-full px-12 bg-transparent border-b-2 border-gray-200 focus:border-indigo-500 text-right text-lg placeholder-gray-400 focus:outline-none transition-colors duration-300">
+
+          <button id="close-search-modal" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Search Modal Functionality
+    const searchButton = document.getElementById('search-button');
+    const searchModal = document.getElementById('search-modal');
+    const closeSearchModal = document.getElementById('close-search-modal');
+
+    searchButton.addEventListener('click', () => {
+      searchModal.classList.remove('hidden');
+      searchModal.classList.add('flex');
+      // Focus the search input
+      setTimeout(() => {
+        searchModal.querySelector('input').focus();
+      }, 100);
+    });
+
+    closeSearchModal.addEventListener('click', () => {
+      searchModal.classList.add('hidden');
+      searchModal.classList.remove('flex');
+    });
+
+    // Close modal when clicking outside
+    searchModal.addEventListener('click', (e) => {
+      if (e.target === searchModal) {
+        searchModal.classList.add('hidden');
+        searchModal.classList.remove('flex');
+      }
+    });
+
+    // Close modal on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !searchModal.classList.contains('hidden')) {
+        searchModal.classList.add('hidden');
+        searchModal.classList.remove('flex');
+      }
+    });
+  </script>
 </body>
 </html>
