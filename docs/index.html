@@ -101,6 +101,31 @@
       background-color: rgb(120 53 15);
       color: white;
     }
+
+    .category-product {
+      transition: all 0.3s ease-in-out;
+      opacity: 1;
+    }
+    .category-product.hidden {
+      display: none;
+      opacity: 0;
+    }
+    .category-btn {
+      transition: all 0.3s ease-in-out;
+    }
+    .category-btn.active {
+      background-color: rgb(120 53 15);
+      color: white;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 
 </head>
@@ -1505,27 +1530,27 @@
 
 
   <!-- Multi-Banner Section - 70/30 Split -->
-  <section class="py-12 bg-gray-50/50">
+  <section class="py-16 bg-gradient-to-b from-gray-50/50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:h-[60vh] gap-4">
+      <div class="flex flex-col md:flex-row md:h-[65vh] gap-3">
         <!-- Large Banner (70% width) -->
         <div class="md:w-[70%] h-full">
-          <div class="relative h-full rounded-2xl overflow-hidden shadow-lg group">
+          <div class="relative h-full rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500 group">
             <!-- Banner Background -->
-            <img src="./img/banners/6.jpg" alt="تشكيلة جديدة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <img src="./img/banners/5.jpg" alt="تشكيلة جديدة" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
             
             <!-- Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-300"></div>
             
             <!-- Content -->
-            <div class="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
-              <div class="transform transition-transform duration-300 group-hover:translate-y-[-8px]">
-                <span class="inline-block px-4 py-1 bg-amber-900/90 text-white text-sm font-bold rounded-full mb-4">تشكيلة حصرية</span>
-                <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">مجموعة الخريف الجديدة</h3>
-                <p class="text-white/80 text-lg mb-6 max-w-xl">اكتشف أحدث تصاميمنا الأنيقة المستوحاة من الطبيعة بألوان خريفية دافئة</p>
-                <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-white/20 backdrop-blur-sm hover:bg-white/30 border border-white/40 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg">
+            <div class="absolute inset-0 flex flex-col justify-end p-10 md:p-12">
+              <div class="transform transition-all duration-500 group-hover:translate-y-[-12px]">
+                <span class="inline-block px-5 py-2 bg-amber-800/90 text-white text-sm font-bold rounded-full mb-5 shadow-lg transform transition-transform group-hover:scale-105">تشكيلة حصرية</span>
+                <h3 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-wide">مجموعة الخريف الجديدة</h3>
+                <p class="text-white/90 text-xl mb-8 max-w-xl leading-relaxed">اكتشف أحدث تصاميمنا الأنيقة المستوحاة من الطبيعة بألوان خريفية دافئة</p>
+                <a href="#" class="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-md hover:bg-white/30 border border-white/40 text-white font-medium rounded-xl transition-all duration-300 hover:shadow-lg group-hover:shadow-xl">
                   تسوق المجموعة الآن
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 transition-transform duration-300 transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
@@ -1535,21 +1560,21 @@
         </div>
         
         <!-- Small Banners Column (30% width) -->
-        <div class="md:w-[30%] flex flex-col gap-4 h-full">
+        <div class="md:w-[30%] flex flex-col gap-6 h-full">
           <!-- Small Banner 1 (Top) -->
-          <div class="h-[calc(50%-0.5rem)] relative rounded-2xl overflow-hidden shadow-lg group">
+          <div class="h-[calc(50%-0.75rem)] relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group">
             <!-- Banner Background -->
-            <div class="absolute inset-0 bg-gradient-to-br from-[#402a32] to-[#55474c] opacity-90"></div>
-            <div class="absolute inset-0 bg-[url('./img/1.jpg')] bg-cover bg-center mix-blend-overlay opacity-70 transition-transform duration-700 group-hover:scale-110"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-[#2a1f24] to-[#55474c] opacity-95 group-hover:opacity-90 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 bg-[url('./img/products/1.jpg')] bg-cover bg-center mix-blend-overlay opacity-60 transition-transform duration-700 group-hover:scale-110"></div>
             
             <!-- Content -->
-            <div class="relative h-full flex flex-col justify-center p-6">
-              <div class="transform transition-transform duration-300 group-hover:translate-y-[-5px]">
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-2">أزياء رجالية فاخرة</h3>
-                <p class="text-white/90 text-sm mb-4">خصم 25% على المجموعة الجديدة</p>
-                <a href="#" class="inline-flex items-center text-white text-sm font-medium hover:underline">
+            <div class="relative h-full flex flex-col justify-center p-8">
+              <div class="transform transition-all duration-500 group-hover:translate-y-[-8px]">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">أزياء رجالية فاخرة</h3>
+                <p class="text-white/90 text-lg mb-4">خصم 25% على المجموعة الجديدة</p>
+                <a href="#" class="inline-flex items-center text-white text-lg font-medium hover:underline">
                   تسوق الآن
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 transition-transform duration-300 transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
@@ -1558,19 +1583,19 @@
           </div>
           
           <!-- Small Banner 2 (Bottom) -->
-          <div class="h-[calc(50%-0.5rem)] relative rounded-2xl overflow-hidden shadow-lg group">
+          <div class="h-[calc(50%-0.75rem)] relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group">
             <!-- Banner Background -->
-            <div class="absolute inset-0 bg-gradient-to-br from-[#402a32] to-[#63474d] opacity-90"></div>
-            <div class="absolute inset-0 bg-[url('./img/2.jpg')] bg-cover bg-center mix-blend-overlay opacity-70 transition-transform duration-700 group-hover:scale-110"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-[#2a1f24] to-[#63474d] opacity-95 group-hover:opacity-90 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 bg-[url('./img/products/2.jpg')] bg-cover bg-center mix-blend-overlay opacity-60 transition-transform duration-700 group-hover:scale-110"></div>
             
             <!-- Content -->
-            <div class="relative h-full flex flex-col justify-center p-6">
-              <div class="transform transition-transform duration-300 group-hover:translate-y-[-5px]">
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-2">إكسسوارات أنيقة</h3>
-                <p class="text-white/90 text-sm mb-4">وصول تشكيلة جديدة من الإكسسوارات الفاخرة</p>
-                <a href="#" class="inline-flex items-center text-white text-sm font-medium hover:underline">
+            <div class="relative h-full flex flex-col justify-center p-8">
+              <div class="transform transition-all duration-500 group-hover:translate-y-[-8px]">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">إكسسوارات أنيقة</h3>
+                <p class="text-white/90 text-lg mb-4">وصول تشكيلة جديدة من الإكسسوارات الفاخرة</p>
+                <a href="#" class="inline-flex items-center text-white text-lg font-medium hover:underline">
                   اكتشف المزيد
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 transition-transform duration-300 transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
@@ -1695,76 +1720,6 @@
     </div>
   </section>
 
-  <style>
-    .category-product {
-      transition: all 0.3s ease-in-out;
-      opacity: 1;
-    }
-    .category-product.hidden {
-      display: none;
-      opacity: 0;
-    }
-    .category-btn {
-      transition: all 0.3s ease-in-out;
-    }
-    .category-btn.active {
-      background-color: rgb(120 53 15);
-      color: white;
-    }
-  </style>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const categoryButtons = document.querySelectorAll('.category-btn');
-      const categoryProducts = document.querySelectorAll('.category-product');
-
-      const filterProducts = (category) => {
-        categoryProducts.forEach(product => {
-          const productCategory = product.dataset.category;
-          
-          if (category === 'all' || category === productCategory) {
-            product.classList.remove('hidden');
-            setTimeout(() => {
-              product.style.opacity = '1';
-            }, 50);
-          } else {
-            product.style.opacity = '0';
-            setTimeout(() => {
-              product.classList.add('hidden');
-            }, 300);
-          }
-        });
-      };
-
-      categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          categoryButtons.forEach(btn => {
-            btn.classList.remove('active', 'bg-amber-900', 'text-white');
-            btn.classList.add('bg-white');
-          });
-
-          button.classList.add('active', 'bg-amber-900', 'text-white');
-          button.classList.remove('bg-white');
-
-          const selectedCategory = button.dataset.category;
-          filterProducts(selectedCategory);
-        });
-      });
-    });
-  </script>
-
-
-
-  <style>
-    /* Hide scrollbar but keep functionality */
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
-    }
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
 
   <!-- Categories Section -->
   <section class="py-20 relative bg-cover bg-center bg-no-repeat" style="background-image: url('./img/banners/5.jpg');">
@@ -2286,7 +2241,7 @@
                   <input type="number" min="1" value="1" class="w-12 text-center border-x-2 border-gray-200 focus:outline-none" />
                   <button class="w-12 flex items-center justify-center text-gray-600 hover:text-gray-700 focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4L5 9" />
                     </svg>
                   </button>
                 </div>
@@ -2474,6 +2429,46 @@
       }
     });
   </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const categoryProducts = document.querySelectorAll('.category-product');
+
+    const filterProducts = (category) => {
+      categoryProducts.forEach(product => {
+        const productCategory = product.dataset.category;
+        
+        if (category === 'all' || category === productCategory) {
+          product.classList.remove('hidden');
+          setTimeout(() => {
+            product.style.opacity = '1';
+          }, 50);
+        } else {
+          product.style.opacity = '0';
+          setTimeout(() => {
+            product.classList.add('hidden');
+          }, 300);
+        }
+      });
+    };
+
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        categoryButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-amber-900', 'text-white');
+          btn.classList.add('bg-white');
+        });
+
+        button.classList.add('active', 'bg-amber-900', 'text-white');
+        button.classList.remove('bg-white');
+
+        const selectedCategory = button.dataset.category;
+        filterProducts(selectedCategory);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
