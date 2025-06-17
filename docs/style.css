@@ -588,6 +588,10 @@ video {
   }
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 .fixed {
   position: fixed;
 }
@@ -954,6 +958,10 @@ video {
   height: calc(50% - 0.75rem);
 }
 
+.h-24 {
+  height: 6rem;
+}
+
 .max-h-\[90vh\] {
   max-height: 90vh;
 }
@@ -1267,6 +1275,12 @@ video {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(2rem * var(--tw-space-x-reverse));
+  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 1;
 }
@@ -1277,6 +1291,10 @@ video {
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded-2xl {
@@ -1401,6 +1419,10 @@ video {
 
 .border-white\/40 {
   border-color: rgb(255 255 255 / 0.4);
+}
+
+.border-amber-900\/20 {
+  border-color: rgb(120 53 15 / 0.2);
 }
 
 .bg-\[\#402a32\] {
@@ -1763,6 +1785,11 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), rgb(0 0 0 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
+.via-transparent {
+  --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
 .to-\[\#402a32\]\/20 {
   --tw-gradient-to: rgb(64 42 50 / 0.2) var(--tw-gradient-to-position);
 }
@@ -1981,6 +2008,11 @@ video {
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .pb-4 {
