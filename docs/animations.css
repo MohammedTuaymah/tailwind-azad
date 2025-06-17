@@ -151,7 +151,8 @@
 
 /* Cart button gradient and hover effects */
 .cart-btn {
-  background: linear-gradient(to right, #865b13, #a67016);
+  background: linear-gradient(to right, #f2f2f2, #000000);
+  /* background: linear-gradient(to right, #865b13, #a67016); */
   color: white;
   transition: all 0.3s ease;
 }
