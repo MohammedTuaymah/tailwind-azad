@@ -1,125 +1,98 @@
 // Mobile menu functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mobile-menu-overlay');
   const menuIconOpen = document.getElementById('menu-icon-open');
   const menuIconClose = document.getElementById('menu-icon-close');
   
-  if (mobileMenuButton) {
-    mobileMenuButton.addEventListener('click', function() {
-      const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-      
-      mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-      mobileMenu.classList.toggle('hidden');
-      
-      if (mobileMenu.classList.contains('hidden')) {
-        // Menu is now hidden
-        menuIconOpen.classList.remove('hidden');
-        menuIconClose.classList.add('hidden');
-        mobileMenuOverlay.classList.add('hidden');
-        mobileMenuOverlay.classList.add('opacity-0');
-        document.body.style.overflow = '';
-      } else {
-        // Menu is now shown
-        menuIconOpen.classList.add('hidden');
-        menuIconClose.classList.remove('hidden');
-        mobileMenuOverlay.classList.remove('hidden');
-        setTimeout(() => {
-          mobileMenuOverlay.classList.remove('opacity-0');
-        }, 10);
-        document.body.style.overflow = 'hidden';
-      }
-    });
+  if (menu.classList.contains('hidden')) {
+    // Show menu and overlay
+    menu.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+    menuIconOpen.classList.add('hidden');
+    menuIconClose.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+  } else {
+    closeMobileMenu();
   }
-  
-  // Hide mobile menu when clicking outside
-  if (mobileMenuOverlay) {
-    mobileMenuOverlay.addEventListener('click', function() {
-      mobileMenu.classList.add('hidden');
-      menuIconOpen.classList.remove('hidden');
-      menuIconClose.classList.add('hidden');
-      mobileMenuOverlay.classList.add('hidden');
-      mobileMenuOverlay.classList.add('opacity-0');
-      document.body.style.overflow = '';
-      mobileMenuButton.setAttribute('aria-expanded', 'false');
-    });
-  }
-  
-  // Close menu when clicking on menu items
-  const mobileMenuItems = mobileMenu.querySelectorAll('a');
-  mobileMenuItems.forEach(item => {
-    item.addEventListener('click', function() {
-      mobileMenu.classList.add('hidden');
-      menuIconOpen.classList.remove('hidden');
-      menuIconClose.classList.add('hidden');
-      mobileMenuOverlay.classList.add('hidden');
-      mobileMenuOverlay.classList.add('opacity-0');
-      document.body.style.overflow = '';
-      mobileMenuButton.setAttribute('aria-expanded', 'false');
-    });
-  });
-  
-  // Close menu on window resize (if expanded to desktop size)
-  window.addEventListener('resize', function() {
-    if (window.innerWidth >= 768 && mobileMenu.classList.contains('block')) {
-      mobileMenu.classList.remove('block', 'animate-slideDown');
-      mobileMenu.classList.add('hidden');
-      mobileMenuOverlay.classList.add('hidden', 'opacity-0');
-      menuIconOpen.classList.remove('hidden');
-      menuIconOpen.classList.add('block');
-      menuIconClose.classList.remove('block');
-      menuIconClose.classList.add('hidden');
-    }
-  });
+}
 
-  // Countdown Timer for Promotional Banner
-  function startCountdown() {
-    // Set the target date (42 days from now)
-    const now = new Date();
-    const targetDate = new Date(now);
-    targetDate.setDate(now.getDate() + 42);
-    targetDate.setHours(now.getHours() + 13);
-    targetDate.setMinutes(now.getMinutes() + 22);
-    targetDate.setSeconds(now.getSeconds() + 7);
-    
-    // Update the countdown every second
-    const countdownInterval = setInterval(function() {
-      // Get current date and time
-      const currentDate = new Date();
-      
-      // Calculate the time remaining
-      const timeRemaining = targetDate - currentDate;
-      
-      // If countdown is over, clear interval
-      if (timeRemaining <= 0) {
-        clearInterval(countdownInterval);
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        return;
-      }
-      
-      // Calculate days, hours, minutes, seconds
-      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-      
-      // Display the result
-      document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-      document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-      document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-      document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
-    }, 1000);
-  }
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
   
-  // Start the countdown timer
-  if (document.getElementById('days')) {
-    startCountdown();
+  menu.classList.add('hidden');
+  overlay.classList.add('hidden');
+  menuIconOpen.classList.remove('hidden');
+  menuIconClose.classList.add('hidden');
+  document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+  const menu = document.getElementById('mobile-menu');
+  const menuButton = document.getElementById('mobile-menu-button');
+  
+  if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+    closeMobileMenu();
   }
 });
+
+// Close menu on window resize (if expanded to desktop size)
+window.addEventListener('resize', function() {
+  if (window.innerWidth >= 768) {
+    closeMobileMenu();
+  }
+});
+
+// Countdown Timer for Promotional Banner
+function startCountdown() {
+  // Set the target date (42 days from now)
+  const now = new Date();
+  const targetDate = new Date(now);
+  targetDate.setDate(now.getDate() + 42);
+  targetDate.setHours(now.getHours() + 13);
+  targetDate.setMinutes(now.getMinutes() + 22);
+  targetDate.setSeconds(now.getSeconds() + 7);
+  
+  // Update the countdown every second
+  const countdownInterval = setInterval(function() {
+    // Get current date and time
+    const currentDate = new Date();
+    
+    // Calculate the time remaining
+    const timeRemaining = targetDate - currentDate;
+    
+    // If countdown is over, clear interval
+    if (timeRemaining <= 0) {
+      clearInterval(countdownInterval);
+      document.getElementById('days').textContent = '00';
+      document.getElementById('hours').textContent = '00';
+      document.getElementById('minutes').textContent = '00';
+      document.getElementById('seconds').textContent = '00';
+      return;
+    }
+    
+    // Calculate days, hours, minutes, seconds
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    
+    // Display the result
+    document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+    document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+    document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+  }, 1000);
+}
+
+// Start the countdown timer
+if (document.getElementById('days')) {
+  startCountdown();
+}
 
 // Quick View Modal Functionality
 const modal = document.getElementById('quick-view-modal');

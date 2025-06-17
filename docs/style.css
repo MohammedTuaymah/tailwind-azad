@@ -1587,6 +1587,10 @@ video {
   background-color: rgb(146 64 14 / 0.9);
 }
 
+.bg-black\/30 {
+  background-color: rgb(0 0 0 / 0.3);
+}
+
 .bg-\[url\(\'\.\/img\/1\.jpg\'\)\] {
   background-image: url('./img/1.jpg');
 }
@@ -2729,6 +2733,10 @@ video {
     margin-bottom: 0.5rem;
   }
 
+  .sm\:hidden {
+    display: none;
+  }
+
   .sm\:h-20 {
     height: 5rem;
   }
@@ -3000,6 +3008,14 @@ video {
 
   .lg\:mr-auto {
     margin-right: auto;
+  }
+
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 
   .lg\:h-\[600px\] {
