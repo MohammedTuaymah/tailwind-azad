@@ -285,6 +285,56 @@
         
   </header>
 
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar" class="fixed left-0 top-0 h-full w-[90%] sm:w-[400px] bg-white shadow-2xl transform translate-x-[-100%] transition-transform duration-300 ease-in-out z-50">
+    <div class="h-full flex flex-col">
+      <!-- Cart Header -->
+      <div class="p-4 border-b flex items-center justify-between bg-black text-white">
+        <h2 class="text-xl font-bold">سلة التسوق</h2>
+        <button onclick="toggleCart()" class="p-2 hover:bg-gray-800 rounded-full transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Cart Items -->
+      <div class="flex-1 overflow-y-auto p-4 space-y-4">
+        <!-- Sample Cart Item -->
+        <div class="flex items-center space-x-4 space-x-reverse bg-gray-50 p-3 rounded-lg">
+          <img src="./img/products/1.jpg" alt="Product" class="w-20 h-20 object-cover rounded-md">
+          <div class="flex-1">
+            <h3 class="font-medium text-gray-900">منتج فاخر</h3>
+            <p class="text-gray-600 text-sm">$99.99</p>
+            <div class="flex items-center mt-2 space-x-2 space-x-reverse">
+              <button class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">-</button>
+              <span class="mx-2">1</span>
+              <button class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">+</button>
+            </div>
+          </div>
+          <button class="text-red-500 hover:text-red-600 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Cart Footer -->
+      <div class="border-t p-4 bg-gray-50">
+        <div class="flex justify-between items-center mb-4">
+          <span class="font-medium">المجموع:</span>
+          <span class="font-bold text-lg">$99.99</span>
+        </div>
+        <button class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+          إتمام الشراء
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Overlay -->
+  <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden z-40" onclick="toggleCart()"></div>
 
   <!-- Main Content -->
   <!-- Hero Banner for E-commerce -->
@@ -2421,6 +2471,35 @@
     });
   });
 </script>
+
+  <!-- Cart functionality -->
+  <script>
+    // Cart toggle functionality
+    function toggleCart() {
+      const cartSidebar = document.getElementById('cart-sidebar');
+      const cartOverlay = document.getElementById('cart-overlay');
+      
+      if (cartSidebar.classList.contains('translate-x-[-100%]')) {
+        // Open cart
+        cartSidebar.classList.remove('translate-x-[-100%]');
+        cartSidebar.classList.add('translate-x-0');
+        cartOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when cart is open
+      } else {
+        // Close cart
+        cartSidebar.classList.remove('translate-x-0');
+        cartSidebar.classList.add('translate-x-[-100%]');
+        cartOverlay.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    }
+
+    // Add click event listener to cart button
+    document.addEventListener('DOMContentLoaded', () => {
+      const cartBtn = document.querySelector('.cart-btn');
+      cartBtn.addEventListener('click', toggleCart);
+    });
+  </script>
 
 </body>
 </html>
