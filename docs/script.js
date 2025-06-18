@@ -298,8 +298,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize Products Swiper
   const productsSwiper = new Swiper('.products-swiper', {
-    slidesPerView: 1,
-    spaceBetween: 20,
+    slidesPerView: 1.2,
+    spaceBetween: 10,
     loop: true,
     grabCursor: true,
     touchEventsTarget: 'container',
@@ -328,8 +328,8 @@ document.addEventListener('DOMContentLoaded', function() {
     speed: 800,
     breakpoints: {
       320: {
-        slidesPerView: 1,
-        spaceBetween: 15,
+        slidesPerView: 1.2,
+        spaceBetween: 10,
       },
       640: {
         slidesPerView: 2,
