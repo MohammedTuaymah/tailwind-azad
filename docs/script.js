@@ -440,3 +440,106 @@ const relatedProductsSwiper = new Swiper('.related-products-swiper', {
         },
     },
 });
+
+var categoriesSwiper = new Swiper(".categoriesSwiper", {
+  slidesPerView: 3,
+  spaceBetween: 10,
+  loop: true,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+  },
+  speed: 9000,
+  breakpoints: {
+    640: {
+      slidesPerView: 3,
+    },
+    768: {
+      slidesPerView: 4,
+    },
+    1024: {
+      slidesPerView: 6,
+    },
+  },
+});
+
+new Swiper('.hero-swiper', {
+  loop: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const categoryButtons = document.querySelectorAll('.category-btn');
+  const categoryProducts = document.querySelectorAll('.category-product');
+
+  const filterProducts = (category) => {
+    categoryProducts.forEach(product => {
+      const productCategory = product.dataset.category;
+      
+      if (category === 'all' || category === productCategory) {
+        product.classList.remove('hidden');
+        setTimeout(() => {
+          product.style.opacity = '1';
+        }, 50);
+      } else {
+        product.style.opacity = '0';
+        setTimeout(() => {
+          product.classList.add('hidden');
+        }, 300);
+      }
+    });
+  };
+
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      categoryButtons.forEach(btn => {
+        btn.classList.remove('active', 'bg-amber-900', 'text-white');
+        btn.classList.add('bg-white');
+      });
+
+      button.classList.add('active', 'bg-amber-900', 'text-white');
+      button.classList.remove('bg-white');
+
+      const selectedCategory = button.dataset.category;
+      filterProducts(selectedCategory);
+    });
+  });
+});
+
+// Cart toggle functionality
+function toggleCart() {
+  const cartSidebar = document.getElementById('cart-sidebar');
+  const cartOverlay = document.getElementById('cart-overlay');
+  
+  if (cartSidebar.classList.contains('translate-x-[-100%]')) {
+    // Open cart
+    cartSidebar.classList.remove('translate-x-[-100%]');
+    cartSidebar.classList.add('translate-x-0');
+    cartOverlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when cart is open
+  } else {
+    // Close cart
+    cartSidebar.classList.remove('translate-x-0');
+    cartSidebar.classList.add('translate-x-[-100%]');
+    cartOverlay.classList.add('hidden');
+    document.body.style.overflow = ''; // Restore scrolling
+  }
+}
+
+// Add click event listener to cart button
+document.addEventListener('DOMContentLoaded', () => {
+  const cartBtn = document.querySelector('.cart-btn');
+  cartBtn.addEventListener('click', toggleCart);
+});
