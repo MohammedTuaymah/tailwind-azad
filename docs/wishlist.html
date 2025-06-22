@@ -13,6 +13,56 @@
   <!-- Add Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   
+  <!-- Category Filter JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const categoryButtons = document.querySelectorAll('.category-btn');
+      const categoryProducts = document.querySelectorAll('.category-product');
+
+      // Function to handle category filtering
+      const filterProducts = (category) => {
+        categoryProducts.forEach(product => {
+          const productCategory = product.dataset.category;
+          
+          if (category === 'all' || category === productCategory) {
+            product.classList.remove('hidden');
+            setTimeout(() => {
+              product.style.opacity = '1';
+            }, 50);
+          } else {
+            product.style.opacity = '0';
+            setTimeout(() => {
+              product.classList.add('hidden');
+            }, 300);
+          }
+        });
+      };
+
+      // Add click event listeners to category buttons
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          categoryButtons.forEach(btn => {
+            btn.classList.remove('active', 'bg-amber-900', 'text-white');
+            btn.classList.add('bg-white');
+          });
+
+          // Add active class to clicked button
+          button.classList.add('active', 'bg-amber-900', 'text-white');
+          button.classList.remove('bg-white');
+
+          // Filter products based on selected category
+          const selectedCategory = button.dataset.category;
+          filterProducts(selectedCategory);
+        });
+      });
+
+      // Debug log
+      console.log('Category filter script loaded');
+      console.log('Found category buttons:', categoryButtons.length);
+      console.log('Found category products:', categoryProducts.length);
+    });
+  </script>
   <style>
     /* Apply Tajawal font to all elements */
     * {
@@ -77,7 +127,7 @@
       scrollbar-width: none;
     }
   </style>
-
+  <title>قائمة أمنياتي | عزاد</title>
 </head>
 <body class="bg-gray-50">
 
@@ -242,78 +292,88 @@
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Page Title -->
     <div class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold text-gray-900">طلباتي</h1>
-      <p class="mt-2 text-gray-600">عرض جميع طلباتك وتتبع حالتها</p>
+      <h1 class="text-2xl md:text-3xl font-bold text-gray-900">قائمة أمنياتي</h1>
+      <p class="mt-2 text-gray-600">المنتجات المفضلة لديك</p>
     </div>
 
-    <!-- Orders Table -->
-    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-      <div class="overflow-x-auto">
-        <table class="w-full">
-          <thead>
-            <tr class="bg-gray-50 border-b border-gray-200">
-              <th class="text-right py-4 px-6 text-sm font-medium text-gray-500">رقم الطلب</th>
-              <th class="text-right py-4 px-6 text-sm font-medium text-gray-500">التاريخ</th>
-              <th class="text-right py-4 px-6 text-sm font-medium text-gray-500">الحالة</th>
-              <th class="text-right py-4 px-6 text-sm font-medium text-gray-500">المجموع</th>
-              <th class="text-right py-4 px-6 text-sm font-medium text-gray-500">إجراء</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr class="hover:bg-gray-50">
-              <td class="py-4 px-6 text-sm text-gray-900">#12345</td>
-              <td class="py-4 px-6 text-sm text-gray-600">٢٠٢٤/٠٣/١٥</td>
-              <td class="py-4 px-6">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                  مكتمل
-                </span>
-              </td>
-              <td class="py-4 px-6 text-sm text-gray-900">٤٥٠ ريال</td>
-              <td class="py-4 px-6">
-                <button class="text-amber-900 hover:text-amber-700 text-sm font-medium">عرض التفاصيل</button>
-              </td>
-            </tr>
-            <tr class="hover:bg-gray-50">
-              <td class="py-4 px-6 text-sm text-gray-900">#12344</td>
-              <td class="py-4 px-6 text-sm text-gray-600">٢٠٢٤/٠٣/١٠</td>
-              <td class="py-4 px-6">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                  قيد التنفيذ
-                </span>
-              </td>
-              <td class="py-4 px-6 text-sm text-gray-900">٨٥٠ ريال</td>
-              <td class="py-4 px-6">
-                <button class="text-amber-900 hover:text-amber-700 text-sm font-medium">عرض التفاصيل</button>
-              </td>
-            </tr>
-            <tr class="hover:bg-gray-50">
-              <td class="py-4 px-6 text-sm text-gray-900">#12343</td>
-              <td class="py-4 px-6 text-sm text-gray-600">٢٠٢٤/٠٣/٠٥</td>
-              <td class="py-4 px-6">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                  ملغي
-                </span>
-              </td>
-              <td class="py-4 px-6 text-sm text-gray-900">٣٢٠ ريال</td>
-              <td class="py-4 px-6">
-                <button class="text-amber-900 hover:text-amber-700 text-sm font-medium">عرض التفاصيل</button>
-              </td>
-            </tr>
-            <tr class="hover:bg-gray-50">
-              <td class="py-4 px-6 text-sm text-gray-900">#12342</td>
-              <td class="py-4 px-6 text-sm text-gray-600">٢٠٢٤/٠٣/٠١</td>
-              <td class="py-4 px-6">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                  مكتمل
-                </span>
-              </td>
-              <td class="py-4 px-6 text-sm text-gray-900">٧٥٠ ريال</td>
-              <td class="py-4 px-6">
-                <button class="text-amber-900 hover:text-amber-700 text-sm font-medium">عرض التفاصيل</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Wishlist Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Wishlist Item 1 -->
+      <div class="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+        <div class="relative">
+          <img src="./img/products/1.jpg" alt="منتج" class="w-full h-64 object-cover">
+          <button class="absolute top-4 left-4 p-2 bg-white/80 backdrop-blur-sm rounded-full text-red-500 hover:bg-white transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-4">
+          <h3 class="font-medium text-gray-900 mb-2">منتج فاخر</h3>
+          <p class="text-gray-600 text-sm mb-4">وصف مختصر للمنتج يوضح مميزاته</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-lg">٤٥٠ ريال</span>
+            <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-300">
+              أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wishlist Item 2 -->
+      <div class="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+        <div class="relative">
+          <img src="./img/products/2.jpg" alt="منتج" class="w-full h-64 object-cover">
+          <button class="absolute top-4 left-4 p-2 bg-white/80 backdrop-blur-sm rounded-full text-red-500 hover:bg-white transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-4">
+          <h3 class="font-medium text-gray-900 mb-2">منتج مميز</h3>
+          <p class="text-gray-600 text-sm mb-4">وصف مختصر للمنتج يوضح مميزاته</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-lg">٣٥٠ ريال</span>
+            <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-300">
+              أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wishlist Item 3 -->
+      <div class="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+        <div class="relative">
+          <img src="./img/products/3.jpg" alt="منتج" class="w-full h-64 object-cover">
+          <button class="absolute top-4 left-4 p-2 bg-white/80 backdrop-blur-sm rounded-full text-red-500 hover:bg-white transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-4">
+          <h3 class="font-medium text-gray-900 mb-2">منتج خاص</h3>
+          <p class="text-gray-600 text-sm mb-4">وصف مختصر للمنتج يوضح مميزاته</p>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-lg">٥٥٠ ريال</span>
+            <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-300">
+              أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="bg-white rounded-2xl shadow-sm overflow-hidden p-8 flex flex-col items-center justify-center text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+        <h3 class="font-medium text-gray-900 mb-2">أضف المزيد من المنتجات</h3>
+        <p class="text-gray-600 text-sm mb-4">اكتشف منتجاتنا المميزة وأضفها إلى قائمة أمنياتك</p>
+        <a href="index.html" class="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-300">
+          تسوق الآن
+        </a>
       </div>
     </div>
   </main>
