@@ -543,3 +543,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartBtn = document.querySelector('.cart-btn');
   cartBtn.addEventListener('click', toggleCart);
 });
+
+// User menu toggle functionality
+function toggleUserMenu() {
+  const userSidebar = document.getElementById('user-sidebar');
+  const userOverlay = document.getElementById('user-overlay');
+  
+  if (userSidebar.classList.contains('translate-x-[-100%]')) {
+    // Open user menu
+    userSidebar.classList.remove('translate-x-[-100%]');
+    userSidebar.classList.add('translate-x-0');
+    userOverlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+  } else {
+    // Close user menu
+    userSidebar.classList.remove('translate-x-0');
+    userSidebar.classList.add('translate-x-[-100%]');
+    userOverlay.classList.add('hidden');
+    document.body.style.overflow = ''; // Restore scrolling
+  }
+}
+
+// Add click event listener to user button
+document.addEventListener('DOMContentLoaded', () => {
+  const userBtn = document.getElementById('user-btn');
+  if (userBtn) {
+    userBtn.addEventListener('click', toggleUserMenu);
+  }
+});
