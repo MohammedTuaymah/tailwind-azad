@@ -624,6 +624,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <!-- Banner 1 -->
+         <a href="#" class="block">
         <div class="relative overflow-hidden rounded-lg shadow-lg h-[180px] sm:h-[200px]">
           <img src="./img/banners/5.jpg" alt="عروض خاصة" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 sm:p-6">
@@ -633,8 +634,9 @@
             </div>
           </div>
         </div>
-
+        </a>
         <!-- Banner 2 -->
+        <a href="#" class="block">
         <div class="relative overflow-hidden rounded-lg shadow-lg h-[180px] sm:h-[200px]">
           <img src="./img/banners/6.jpg" alt="تشكيلة جديدة" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 sm:p-6">
@@ -644,8 +646,9 @@
             </div>
           </div>
         </div>
-
+        </a>
         <!-- Banner 3 -->
+        <a href="#" class="block">
         <div class="relative overflow-hidden rounded-lg shadow-lg h-[180px] sm:h-[200px]">
           <img src="./img/banners/5.jpg" alt="ماركات حصرية" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 sm:p-6">
@@ -655,6 +658,7 @@
             </div>
           </div>
         </div>
+        </a>
       </div>
     </div>
   </section>
@@ -679,40 +683,39 @@
         <!-- Product Card 1 -->
         <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
           <!-- Badge -->
-          <div class="absolute top-3 sm:top-4 right-3 sm:right-4 z-10">
+          <div class="absolute top-3 sm:top-4 left-3 sm:left-3 z-10">
             <span class="bg-black text-white text-xs sm:text-sm font-semibold px-2 sm:px-3 py-1 rounded-full">جديد</span>
           </div>
           
           <!-- Product Image -->
           <div class="relative h-48 sm:h-56 md:h-64 lg:h-72 rounded-t-2xl overflow-hidden">
+            <!-- Wishlist -->
+            <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 flex items-center justify-center absolute sm:top-3 right-1 sm:right-4 z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </button>
             <img src="./img/products/3.jpg" alt="قميص فاخر" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
           </div>
           
           <!-- Product Info -->
-          <div class="p-4 sm:p-5 md:p-6 min-h-[160px] sm:min-h-[180px] flex flex-col justify-between">
+          <div class="p-4 sm:p-5 md:p-6 flex flex-col justify-between">
             <!-- Title -->
             <div class="overflow-hidden">
-              <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
+              <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
                تيششيرت كاجوال
               </h3>
             </div>
-            
+              
             <!-- Price & Actions -->
-            <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center justify-between">
               <!-- Price -->
               <div class="flex flex-col">
-                <span class="text-black font-bold text-lg sm:text-xl">١٢٥٠ ريال</span>
-                <span class="text-gray-500 text-xs sm:text-sm">شامل الضريبة</span>
+                <span class="text-black font-medium text-lg sm:text-xl">١٢٥٠ ريال</span>
               </div>
               
               <!-- Action Buttons -->
               <div class="flex items-center gap-2 sm:gap-3">
-                <!-- Wishlist -->
-                <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-50 hover:bg-black flex items-center justify-center transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 hover:text-black transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </button>
                 
                 <!-- Cart -->
                 <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black hover:bg-slate-600 flex items-center justify-center transition-colors duration-300 shadow-md hover:shadow-lg">
@@ -727,21 +730,24 @@
 
         <!-- Product Card 2 -->
         <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-          <!-- Badge -->
-          <div class="absolute top-3 sm:top-4 right-3 sm:right-4 z-10">
-            <span class="bg-red-100 text-red-600 text-xs sm:text-sm font-semibold px-2 sm:px-3 py-1 rounded-full">تخفيض ١٥٪</span>
-          </div>
           
           <!-- Product Image -->
           <div class="relative h-48 sm:h-56 md:h-64 lg:h-72 rounded-t-2xl overflow-hidden">
+            <!-- Wishlist -->
+            <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 flex items-center justify-center absolute sm:top-3 right-1 sm:right-4 z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </button>
+            
             <img src="./img/products/5.jpg" alt="حذاء جلد" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
           </div>
           
           <!-- Product Info -->
-          <div class="p-4 sm:p-5 md:p-6 min-h-[160px] sm:min-h-[180px] flex flex-col justify-between">
+          <div class="p-4 sm:p-5 md:p-6 flex flex-col justify-between">
             <!-- Title -->
             <div class="overflow-hidden">
-              <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
+              <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
                 تيششيرت كاجوال
               </h3>
             </div>
@@ -751,20 +757,13 @@
               <!-- Price -->
               <div class="flex flex-col">
                 <div class="flex items-center gap-1 sm:gap-2">
-                  <span class="text-black font-bold text-lg sm:text-xl">١٨٥٠ ريال</span>
+                  <span class="text-black font-medium text-lg sm:text-xl">١٨٥٠ ريال</span>
                   <span class="text-gray-400 line-through text-xs sm:text-sm">٢١٧٥ ريال</span>
                 </div>
-                <span class="text-gray-500 text-xs sm:text-sm">شامل الضريبة</span>
               </div>
               
               <!-- Action Buttons -->
               <div class="flex items-center gap-2 sm:gap-3">
-                <!-- Wishlist -->
-                <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-50 hover:bg-black flex items-center justify-center transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 hover:text-black transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </button>
                 
                 <!-- Cart -->
                 <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black hover:bg-slate-600 flex items-center justify-center transition-colors duration-300 shadow-md hover:shadow-lg">
@@ -781,14 +780,20 @@
         <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
           <!-- Product Image -->
           <div class="relative h-48 sm:h-56 md:h-64 lg:h-72 rounded-t-2xl overflow-hidden">
+            <!-- Wishlist -->
+            <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 flex items-center justify-center absolute sm:top-3 right-1 sm:right-4 z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </button>
             <img src="./img/products/4.jpg" alt="حقيبة جلدية" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
           </div>
           
           <!-- Product Info -->
-          <div class="p-4 sm:p-5 md:p-6 min-h-[160px] sm:min-h-[180px] flex flex-col justify-between">
+          <div class="p-4 sm:p-5 md:p-6 flex flex-col justify-between">
             <!-- Title -->
             <div class="overflow-hidden">
-              <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
+              <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
                 تيششيرت كاجوال
               </h3>
             </div>
@@ -797,18 +802,11 @@
             <div class="flex items-center justify-between mt-auto">
               <!-- Price -->
               <div class="flex flex-col">
-                <span class="text-black font-bold text-lg sm:text-xl">٣٥٠٠ ريال</span>
-                <span class="text-gray-500 text-xs sm:text-sm">شامل الضريبة</span>
+                <span class="text-black font-medium text-lg sm:text-xl">٣٥٠٠ ريال</span>
               </div>
               
               <!-- Action Buttons -->
               <div class="flex items-center gap-2 sm:gap-3">
-                <!-- Wishlist -->
-                <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-50 hover:bg-amber-50 flex items-center justify-center transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 hover:text-amber-900 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </button>
                 
                 <!-- Cart -->
                 <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black hover:bg-slate-600 flex items-center justify-center transition-colors duration-300 shadow-md hover:shadow-lg">
@@ -823,21 +821,24 @@
 
         <!-- Product Card 4 -->
         <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-          <!-- Badge -->
-          <div class="absolute top-3 sm:top-4 right-3 sm:right-4 z-10">
-            <span class="bg-amber-100 text-amber-900 text-xs sm:text-sm font-semibold px-2 sm:px-3 py-1 rounded-full">حصري</span>
-          </div>
+
           
           <!-- Product Image -->
           <div class="relative h-48 sm:h-56 md:h-64 lg:h-72 rounded-t-2xl overflow-hidden">
+            <!-- Wishlist -->
+            <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 flex items-center justify-center absolute sm:top-3 right-1 sm:right-4 z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </button>
             <img src="./img/products/2.jpg" alt="ساعة يد" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
           </div>
           
           <!-- Product Info -->
-          <div class="p-4 sm:p-5 md:p-6 min-h-[160px] sm:min-h-[180px] flex flex-col justify-between">
+          <div class="p-4 sm:p-5 md:p-6 flex flex-col justify-between">
             <!-- Title -->
             <div class="overflow-hidden">
-              <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
+              <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
                 تيششيرت كاجوال
               </h3>
             </div>
@@ -846,18 +847,11 @@
             <div class="flex items-center justify-between mt-auto">
               <!-- Price -->
               <div class="flex flex-col">
-                <span class="text-black font-bold text-lg sm:text-xl">٧٨٠٠ ريال</span>
-                <span class="text-gray-500 text-xs sm:text-sm">شامل الضريبة</span>
+                <span class="text-black font-medium text-lg sm:text-xl">٧٨٠٠ ريال</span>
               </div>
               
               <!-- Action Buttons -->
               <div class="flex items-center gap-2 sm:gap-3">
-                <!-- Wishlist -->
-                <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-50 hover:bg-amber-50 flex items-center justify-center transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 hover:text-amber-900 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </button>
                 
                 <!-- Cart -->
                 <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black hover:bg-slate-600 flex items-center justify-center transition-colors duration-300 shadow-md hover:shadow-lg">
@@ -984,7 +978,7 @@
       </div>
 
       <!-- Products Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
         
         <!-- Product Card 1 -->
         <div class="group bg-white rounded-xl md:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
@@ -999,18 +993,12 @@
               </svg>
             </button>
 
-            <!-- Sale Badge -->
-            <div class="absolute top-2 left-2 md:top-4 md:left-4">
-              <span class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-bold bg-red-500 text-white">
-                خصم 20%
-              </span>
-            </div>
           </div>
                      
            <!-- Product Info -->
            <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
              <!-- Product Name -->
-             <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+             <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight text-sm md:text-base">
               تيششيرت كاجوال
             </h3>
             
@@ -1027,7 +1015,7 @@
             <!-- Price and Add to Cart -->
             <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
               <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                <span class="text-base md:text-3xl font-bold text-black">٤٥٠ ريال</span>
+                <span class="text-base md:text-2xl font-semibold text-black">٤٥٠ ريال</span>
                 <span class="text-xs md:text-base text-gray-400 line-through">٥٦٠ ريال</span>
               </div>
               
@@ -1053,18 +1041,13 @@
               </svg>
             </button>
 
-            <!-- New Badge -->
-            <div class="absolute top-2 left-2 md:top-4 md:left-4">
-              <span class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-bold bg-green-500 text-white">
-                جديد
-              </span>
-            </div>
+
           </div>
                      
            <!-- Product Info -->
            <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
              <!-- Product Name -->
-             <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+             <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight text-sm md:text-base">
               تيششيرت كاجوال
             </h3>
             
@@ -1080,7 +1063,7 @@
             <!-- Price and Add to Cart -->
             <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
               <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                <span class="text-base md:text-3xl font-bold text-black">٨٥٠ ريال</span>
+                <span class="text-base md:text-2xl font-semibold text-black">٨٥٠ ريال</span>
               </div>
               
               <button class="w-8 h-8 md:w-10 md:h-10 rounded-full cart-btn flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
@@ -1105,18 +1088,13 @@
               </svg>
             </button>
 
-            <!-- Premium Badge -->
-            <div class="absolute top-2 left-2 md:top-4 md:left-4">
-              <span class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-bold bg-gradient-to-r from-amber-500 to-orange-500 text-white">
-                مميز
-              </span>
-            </div>
+
           </div>
                      
            <!-- Product Info -->
            <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
              <!-- Product Name -->
-             <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+             <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight text-sm md:text-base">
               تيششيرت كاجوال
             </h3>
             
@@ -1132,7 +1110,7 @@
             <!-- Price and Add to Cart -->
             <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
               <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                <span class="text-base md:text-3xl font-bold text-black">١٢٥٠ ريال</span>
+                <span class="text-base md:text-2xl font-semibold text-black">١٢٥٠ ريال</span>
                 <span class="text-xs md:text-base text-gray-400 line-through">١٤٠٠ ريال</span>
               </div>
               
@@ -1158,18 +1136,12 @@
               </svg>
             </button>
 
-            <!-- Bestseller Badge -->
-            <div class="absolute top-2 left-2 md:top-4 md:left-4">
-              <span class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-bold bg-blue-500 text-white">
-                الأكثر مبيعاً
-              </span>
-            </div>
           </div>
                      
            <!-- Product Info -->
            <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
              <!-- Product Name -->
-             <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+             <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight text-sm md:text-base">
               تيششيرت كاجوال
             </h3>
             
@@ -1187,7 +1159,7 @@
             <!-- Price and Add to Cart -->
             <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
               <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                <span class="text-base md:text-3xl font-bold text-black">٢٨٠ ريال</span>
+                <span class="text-base md:text-2xl font-semibold text-black">٢٨٠ ريال</span>
               </div>
               
               <button class="w-8 h-8 md:w-10 md:h-10 rounded-full cart-btn flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
@@ -1212,18 +1184,13 @@
               </svg>
             </button>
 
-            <!-- Limited Badge -->
-            <div class="absolute top-2 left-2 md:top-4 md:left-4">
-              <span class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-bold bg-purple-500 text-white">
-                محدود
-              </span>
-            </div>
+
           </div>
                      
            <!-- Product Info -->
            <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
              <!-- Product Name -->
-             <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+             <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight text-sm md:text-base">
               تيششيرت كاجوال
             </h3>
             
@@ -1239,7 +1206,7 @@
             <!-- Price and Add to Cart -->
             <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
               <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                <span class="text-base md:text-3xl font-bold text-black">٣٢٠ ريال</span>
+                <span class="text-base md:text-2xl font-semibold text-black">٣٢٠ ريال</span>
                 <span class="text-xs md:text-base text-gray-400 line-through">٤٠٠ ريال</span>
               </div>
               
@@ -1265,18 +1232,13 @@
               </svg>
             </button>
 
-            <!-- Luxury Badge -->
-            <div class="absolute top-2 left-2 md:top-4 md:left-4">
-              <span class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 text-white">
-                فاخر
-              </span>
-            </div>
+
           </div>
                      
            <!-- Product Info -->
            <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
              <!-- Product Name -->
-             <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+             <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight text-sm md:text-base">
               تيششيرت كاجوال
             </h3>
             
@@ -1292,7 +1254,7 @@
             <!-- Price and Add to Cart -->
             <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
               <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                <span class="text-base md:text-3xl font-bold text-black">١٨٥٠ ريال</span>
+                <span class="text-base md:text-2xl font-semibold text-black">١٨٥٠ ريال</span>
               </div>
               
               <button class="w-8 h-8 md:w-10 md:h-10 rounded-full cart-btn flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
@@ -1397,7 +1359,7 @@
       </div>
 
       <!-- Products Swiper -->
-      <div class="products-swiper overflow-hidden relative">
+      <div class="products-swiper relative">
         <div class="swiper-wrapper">
           
           <!-- Product Slide 1 -->
@@ -1425,7 +1387,7 @@
                <!-- Product Info -->
                <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
                  <!-- Product Name -->
-                 <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+                 <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
                   تيششيرت كاجوال
                 </h3>
                 
@@ -1443,7 +1405,7 @@
                 <!-- Price and Add to Cart -->
                 <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
                   <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="text-base md:text-3xl font-bold text-black">٤٥٠ ريال</span>
+                    <span class="text-base md:text-2xl font-semibold text-black">٤٥٠ ريال</span>
                     <span class="text-xs md:text-base text-gray-400 line-through">٥٦٠ ريال</span>
                   </div>
                   
@@ -1471,18 +1433,13 @@
                   </svg>
                 </button>
 
-                <!-- New Badge -->
-                <div class="absolute top-2 left-2 md:top-4 md:left-4">
-                  <span class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-bold bg-green-500 text-white">
-                    جديد
-                  </span>
-                </div>
+
               </div>
                          
                <!-- Product Info -->
                <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
                  <!-- Product Name -->
-                 <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+                 <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
                   تيششيرت كاجوال
                 </h3>
                 
@@ -1498,7 +1455,7 @@
                 <!-- Price and Add to Cart -->
                 <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
                   <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="text-base md:text-3xl font-bold text-black">٨٥٠ ريال</span>
+                    <span class="text-base md:text-2xl font-semibold text-black">٨٥٠ ريال</span>
                   </div>
                   
                   <button class="w-8 h-8 md:w-10 md:h-10 rounded-full cart-btn flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
@@ -1525,18 +1482,13 @@
                   </svg>
                 </button>
 
-                <!-- Premium Badge -->
-                <div class="absolute top-2 left-2 md:top-4 md:left-4">
-                  <span class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-bold bg-gradient-to-r from-amber-500 to-orange-500 text-white">
-                    مميز
-                  </span>
-                </div>
+
               </div>
                          
                <!-- Product Info -->
                <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
                  <!-- Product Name -->
-                 <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+                  <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
                   تيششيرت كاجوال
                 </h3>
                 
@@ -1552,7 +1504,7 @@
                 <!-- Price and Add to Cart -->
                 <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
                   <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="text-base md:text-3xl font-bold text-black">١٢٥٠ ريال</span>
+                    <span class="text-base md:text-2xl font-semibold text-black">١٢٥٠ ريال</span>
                     <span class="text-xs md:text-base text-gray-400 line-through">١٤٠٠ ريال</span>
                   </div>
                   
@@ -1580,18 +1532,12 @@
                   </svg>
                 </button>
 
-                <!-- Limited Badge -->
-                <div class="absolute top-2 left-2 md:top-4 md:left-4">
-                  <span class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-bold bg-purple-500 text-white">
-                    محدود
-                  </span>
-                </div>
               </div>
                          
                <!-- Product Info -->
                <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
                  <!-- Product Name -->
-                 <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+                 <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
                   تيششيرت كاجوال
                 </h3>
                 
@@ -1607,7 +1553,7 @@
                 <!-- Price and Add to Cart -->
                 <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
                   <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="text-base md:text-3xl font-bold text-black">٣٢٠ ريال</span>
+                    <span class="text-base md:text-2xl font-semibold text-black">٣٢٠ ريال</span>
                     <span class="text-xs md:text-base text-gray-400 line-through">٤٠٠ ريال</span>
                   </div>
                   
@@ -1635,18 +1581,13 @@
                   </svg>
                 </button>
 
-                <!-- Luxury Badge -->
-                <div class="absolute top-2 left-2 md:top-4 md:left-4">
-                  <span class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 text-white">
-                    فاخر
-                  </span>
-                </div>
+
               </div>
                          
                <!-- Product Info -->
                <div class="p-3 md:p-6 text-center mt-2 md:mt-0">
                  <!-- Product Name -->
-                 <h3 class="text-sm md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
+                 <h3 class="font-semibold text-gray-900 mb-2 md:mb-3 group-hover:text-amber-900 transition-colors duration-300 leading-tight">
                   تيششيرت كاجوال
                 </h3>
                 
@@ -1662,7 +1603,7 @@
                 <!-- Price and Add to Cart -->
                 <div class="flex items-center justify-between pt-3 md:pt-4 border-gray-100 md:px-0 p-2">
                   <div class="flex flex-row sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="text-base md:text-3xl font-bold text-black">١٨٥٠ ريال</span>
+                    <span class="text-base md:text-2xl font-semibold text-black">١٨٥٠ ريال</span>
                   </div>
                   
                   <button class="w-8 h-8 md:w-10 md:h-10 rounded-full cart-btn flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
