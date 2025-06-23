@@ -969,88 +969,63 @@
 
 
 
-  <!-- Promotional Banner with Countdown -->
-  <section class="py-8 md:py-16 mb-10 md:mb-20">
-    <div class="px-4 sm:px-6 lg:px-8">
-      <!-- Main Banner Container -->
-      <div class="bg-gradient-to-br from-amber-50 to-rose-50 rounded-3xl shadow-2xl overflow-hidden">
-        <!-- Top Accent Bar -->
-        <div class="h-2 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500"></div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
-          <!-- Content Section (7 columns) -->
-          <div class="lg:col-span-7 p-8 md:p-12 flex flex-col justify-between relative">
-            <!-- Floating Offer Badge -->
-            <div class="absolute top-6 left-6 rotate-[-2deg]">
-              <div class="bg-amber-900 text-white px-6 py-2 rounded-lg shadow-lg transform hover:rotate-2 transition-transform duration-300">
-                <span class="text-sm font-bold tracking-wider">عرض حصري</span>
-              </div>
+  <!-- Store Features Section -->
+  <section class="py-24 bg-gradient-to-b from-white to-[#402a32]/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-6">
+        <h2 class="text-4xl md:text-5xl font-bold text-[#402a32] mt-3">مميزات المتجر</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">نقدم لكم تجربة تسوق استثنائية مع مجموعة من المميزات الحصرية</p>
+        <div class="w-32 h-1.5 mx-auto bg-gradient-to-r from-[#402a32]/20 via-[#402a32] to-[#402a32]/20 rounded-full mt-8"></div>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Feature 1: Secure Payment -->
+        <div class="group relative bg-[#865b13]/5 p-6 rounded-[2rem] transition-all duration-500 hover:-translate-y-2 shadow-lg">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#865b13] to-[#865b13]/60 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-16 h-16 mb-6 bg-[#865b13]/10 rounded-2xl flex items-center justify-center group-hover:bg-white/10 transition-colors duration-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#865b13] group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
             </div>
-
-            <!-- Main Content -->
-            <div class="mt-16">
-              <!-- Heading -->
-              <div class="space-y-4 mb-8">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
-                  <span class="block">تخفيضات نهاية الموسم</span>
-                  <span class="text-amber-800">خصم يصل إلى 70%</span>
-                </h2>
-                <p class="text-lg text-gray-600 max-w-xl leading-relaxed">
-                  فرصتك الذهبية للحصول على أفخم الأزياء والإكسسوارات بأسعار استثنائية. تسوق الآن واستمتع بأفضل العروض على مجموعتنا المميزة.
-                </p>
-              </div>
-
-
-              <!-- New Style Countdown -->
-              <div class="mb-8">
-                <div class="inline-flex items-center bg-amber-900/10 rounded-full px-4 py-2 mb-4">
-                  <svg class="h-5 w-5 text-amber-700 ml-2 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <span class="text-amber-900 font-medium">ينتهي العرض قريباً</span>
-                </div>
-                <div class="flex flex-wrap gap-3">
-                  <div class="relative">
-                    <div class="w-20 h-20 bg-white rounded-2xl shadow-inner flex items-center justify-center">
-                      <span id="days" class="text-3xl font-bold text-amber-900">02</span>
-                    </div>
-                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full">يوم</span>
-                  </div>
-                  <div class="relative">
-                    <div class="w-20 h-20 bg-white rounded-2xl shadow-inner flex items-center justify-center">
-                      <span id="hours" class="text-3xl font-bold text-amber-900">12</span>
-                    </div>
-                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full">ساعة</span>
-                  </div>
-                  <div class="relative">
-                    <div class="w-20 h-20 bg-white rounded-2xl shadow-inner flex items-center justify-center">
-                      <span id="minutes" class="text-3xl font-bold text-amber-900">45</span>
-                    </div>
-                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full">دقيقة</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CTA Buttons -->
-              <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#" class="group flex-1 inline-flex items-center justify-center px-8 py-4 bg-amber-900 text-white text-base font-bold rounded-xl shadow-lg transition-all duration-300 hover:bg-amber-800 transform hover:-translate-y-1 hover:shadow-xl">
-                  تسوق الآن
-                  <svg class="h-5 w-5 mr-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                  </svg>
-                </a>
-                <button class="inline-flex items-center justify-center px-6 py-4 border-2 border-amber-900 text-amber-900 font-bold rounded-xl transition-all duration-300 hover:bg-amber-900 hover:text-white">
-                  عرض التفاصيل
-                </button>
-              </div>
-            </div>
+            <h3 class="text-xl font-bold text-[#865b13] mb-3 group-hover:text-white transition-colors duration-500">وسائل دفع آمنة</h3>
+            <p class="text-gray-600 group-hover:text-white/90 transition-colors duration-500">تسوق بثقة مع وسائل دفع متعددة ومؤمنة بالكامل</p>
           </div>
+        </div>
 
-          
+        <!-- Feature 2: Fast Shipping -->
+        <div class="group relative bg-[#865b13]/5 p-6 rounded-[2rem] transition-all duration-500 hover:-translate-y-2 shadow-lg">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#865b13] to-[#865b13]/60 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-16 h-16 mb-6 bg-[#865b13]/10 rounded-2xl flex items-center justify-center group-hover:bg-white/10 transition-colors duration-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#865b13] group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#865b13] mb-3 group-hover:text-white transition-colors duration-500">شحن سريع</h3>
+            <p class="text-gray-600 group-hover:text-white/90 transition-colors duration-500">خدمة توصيل سريعة لجميع الطلبات مع تتبع مباشر</p>
+          </div>
+        </div>
+
+        <!-- Feature 3: Premium Quality -->
+        <div class="group relative bg-[#865b13]/5 p-6 rounded-[2rem] transition-all duration-500 hover:-translate-y-2 shadow-lg">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#865b13] to-[#865b13]/60 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-16 h-16 mb-6 bg-[#865b13]/10 rounded-2xl flex items-center justify-center group-hover:bg-white/10 transition-colors duration-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#865b13] group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#865b13] mb-3 group-hover:text-white transition-colors duration-500">جودة فاخرة</h3>
+            <p class="text-gray-600 group-hover:text-white/90 transition-colors duration-500">منتجات مختارة بعناية من أفخم الماركات العالمية</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
   
 
 
@@ -1431,6 +1406,90 @@
   </section>
 
 
+
+
+    <!-- Promotional Banner with Countdown -->
+    <section class="py-8 md:py-16 mb-10 md:mb-20">
+      <div class="px-4 sm:px-6 lg:px-8">
+        <!-- Main Banner Container -->
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-2xl overflow-hidden">
+          <!-- Top Accent Bar -->
+          <div class="h-2 bg-gradient-to-r from-black via-gray-800 to-black"></div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+            <!-- Content Section (7 columns) -->
+            <div class="lg:col-span-7 p-8 md:p-12 flex flex-col justify-between relative">
+              <!-- Floating Offer Badge -->
+              <div class="absolute top-6 left-6 rotate-[-2deg]">
+                <div class="bg-black text-gray-100 px-6 py-2 rounded-lg shadow-lg transform hover:rotate-2 transition-transform duration-300">
+                  <span class="text-sm font-bold tracking-wider text-white">عرض حصري</span>
+                </div>
+              </div>
+  
+              <!-- Main Content -->
+              <div class="mt-16">
+                <!-- Heading -->
+                <div class="space-y-4 mb-8">
+                  <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-100 leading-tight">
+                    <span class="block">تخفيضات نهاية الموسم</span>
+                    <span class="text-gray-300">خصم يصل إلى 70%</span>
+                  </h2>
+                  <p class="text-lg text-gray-400 max-w-xl leading-relaxed">
+                    فرصتك الذهبية للحصول على أفخم الأزياء والإكسسوارات بأسعار استثنائية. تسوق الآن واستمتع بأفضل العروض على مجموعتنا المميزة.
+                  </p>
+                </div>
+  
+  
+                <!-- New Style Countdown -->
+                <div class="mb-8">
+                  <div class="inline-flex items-center bg-black/30 rounded-full px-4 py-2 mb-4">
+                    <svg class="h-5 w-5 text-gray-300 ml-2 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-gray-200 font-medium">ينتهي العرض قريباً</span>
+                  </div>
+                  <div class="flex flex-wrap gap-3">
+                    <div class="relative">
+                      <div class="w-20 h-20 bg-gray-800 rounded-2xl shadow-inner flex items-center justify-center">
+                        <span id="days" class="text-3xl font-bold text-gray-100">02</span>
+                      </div>
+                      <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-black text-white px-3 py-0.5 rounded-full">يوم</span>
+                    </div>
+                    <div class="relative">
+                      <div class="w-20 h-20 bg-gray-800 rounded-2xl shadow-inner flex items-center justify-center">
+                        <span id="hours" class="text-3xl font-bold text-gray-100">12</span>
+                      </div>
+                      <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-black text-white px-3 py-0.5 rounded-full">ساعة</span>
+                    </div>
+                    <div class="relative">
+                      <div class="w-20 h-20 bg-gray-800 rounded-2xl shadow-inner flex items-center justify-center">
+                        <span id="minutes" class="text-3xl font-bold text-gray-100">45</span>
+                      </div>
+                      <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-black text-white px-3 py-0.5 rounded-full">دقيقة</span>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="#" class="group flex-1 inline-flex items-center justify-center px-8 py-4 bg-black text-white text-base font-bold rounded-xl shadow-lg transition-all duration-300 hover:bg-gray-900 transform hover:-translate-y-1 hover:shadow-xl">
+                    تسوق الآن
+                    <svg class="h-5 w-5 mr-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                  </a>
+                  <button class="inline-flex items-center justify-center px-6 py-4 border-2 border-gray-300 text-black font-bold rounded-xl transition-all duration-300 hover:bg-gray-800 hover:border-gray-200">
+                    عرض التفاصيل
+                  </button>
+                </div>
+              </div>
+            </div>
+  
+            
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 
@@ -2038,6 +2097,109 @@
       </div>
     </div>
   </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Promotional Banner with Countdown -->
+    <section class="py-8 md:py-16 mb-10 md:mb-20">
+      <div class="px-4 sm:px-6 lg:px-8">
+        <!-- Main Banner Container -->
+        <div class="bg-gradient-to-br from-amber-50 to-rose-50 rounded-3xl shadow-2xl overflow-hidden">
+          <!-- Top Accent Bar -->
+          <div class="h-2 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500"></div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+            <!-- Content Section (7 columns) -->
+            <div class="lg:col-span-7 p-8 md:p-12 flex flex-col justify-between relative">
+              <!-- Floating Offer Badge -->
+              <div class="absolute top-6 left-6 rotate-[-2deg]">
+                <div class="bg-amber-900 text-white px-6 py-2 rounded-lg shadow-lg transform hover:rotate-2 transition-transform duration-300">
+                  <span class="text-sm font-bold tracking-wider">عرض حصري</span>
+                </div>
+              </div>
+  
+              <!-- Main Content -->
+              <div class="mt-16">
+                <!-- Heading -->
+                <div class="space-y-4 mb-8">
+                  <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
+                    <span class="block">تخفيضات نهاية الموسم</span>
+                    <span class="text-amber-800">خصم يصل إلى 70%</span>
+                  </h2>
+                  <p class="text-lg text-gray-600 max-w-xl leading-relaxed">
+                    فرصتك الذهبية للحصول على أفخم الأزياء والإكسسوارات بأسعار استثنائية. تسوق الآن واستمتع بأفضل العروض على مجموعتنا المميزة.
+                  </p>
+                </div>
+  
+  
+                <!-- New Style Countdown -->
+                <div class="mb-8">
+                  <div class="inline-flex items-center bg-amber-900/10 rounded-full px-4 py-2 mb-4">
+                    <svg class="h-5 w-5 text-amber-700 ml-2 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-amber-900 font-medium">ينتهي العرض قريباً</span>
+                  </div>
+                  <div class="flex flex-wrap gap-3">
+                    <div class="relative">
+                      <div class="w-20 h-20 bg-white rounded-2xl shadow-inner flex items-center justify-center">
+                        <span id="days" class="text-3xl font-bold text-amber-900">02</span>
+                      </div>
+                      <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full">يوم</span>
+                    </div>
+                    <div class="relative">
+                      <div class="w-20 h-20 bg-white rounded-2xl shadow-inner flex items-center justify-center">
+                        <span id="hours" class="text-3xl font-bold text-amber-900">12</span>
+                      </div>
+                      <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full">ساعة</span>
+                    </div>
+                    <div class="relative">
+                      <div class="w-20 h-20 bg-white rounded-2xl shadow-inner flex items-center justify-center">
+                        <span id="minutes" class="text-3xl font-bold text-amber-900">45</span>
+                      </div>
+                      <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full">دقيقة</span>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="#" class="group flex-1 inline-flex items-center justify-center px-8 py-4 bg-amber-900 text-white text-base font-bold rounded-xl shadow-lg transition-all duration-300 hover:bg-amber-800 transform hover:-translate-y-1 hover:shadow-xl">
+                    تسوق الآن
+                    <svg class="h-5 w-5 mr-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                  </a>
+                  <button class="inline-flex items-center justify-center px-6 py-4 border-2 border-amber-900 text-amber-900 font-bold rounded-xl transition-all duration-300 hover:bg-amber-900 hover:text-white">
+                    عرض التفاصيل
+                  </button>
+                </div>
+              </div>
+            </div>
+  
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
 
 
 
