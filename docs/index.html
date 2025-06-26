@@ -69,6 +69,9 @@
       font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
     }
     
+    /* .swiper{
+      overflow: unset !important;
+    } */
     .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
       display: none;
     }
@@ -125,6 +128,52 @@
     .scrollbar-hide {
       -ms-overflow-style: none;
       scrollbar-width: none;
+    }
+
+    /* Reviews Swiper Custom Styles */
+    .reviewsSwiper .swiper-button-next,
+    .reviewsSwiper .swiper-button-prev {
+      width: 50px;
+      height: 50px;
+      background: black;
+      border-radius: 50%;
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .reviewsSwiper .swiper-button-next:hover,
+    .reviewsSwiper .swiper-button-prev:hover {
+      background: #333;
+      transform: scale(1.1);
+    }
+
+    .reviewsSwiper .swiper-button-next.swiper-button-disabled,
+    .reviewsSwiper .swiper-button-prev.swiper-button-disabled {
+      opacity: 0.3;
+    }
+
+    .reviewsSwiper .swiper-button-next:after,
+    .reviewsSwiper .swiper-button-prev:after {
+      display: none;
+    }
+
+    /* Fixed height for review cards */
+    .reviewsSwiper .swiper-slide {
+      height: auto;
+    }
+
+    .reviewsSwiper .swiper-slide > div {
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      .reviewsSwiper .swiper-slide > div {
+        height: 350px;
+      }
     }
   </style>
 
@@ -2324,6 +2373,279 @@
     </div>
   </div>
 
+  <!-- Customer Reviews Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">آراء عملائنا</h2>
+        <div class="w-24 h-1 mx-auto bg-black"></div>
+        <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
+          اكتشف ما يقوله عملاؤنا الكرام عن تجربتهم في التسوق معنا
+        </p>
+      </div>
+
+      <!-- Reviews Carousel -->
+      <div class="swiper reviewsSwiper">
+        <div class="swiper-wrapper">
+          
+          <!-- Review 1 -->
+          <div class="swiper-slide">
+            <div class="bg-white rounded-2xl transition-all duration-300 p-6 md:p-8 h-full">
+              <!-- Stars Rating -->
+              <div class="flex justify-center mb-4">
+                <div class="flex gap-1">
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                </div>
+              </div>
+              <!-- Review Text -->
+              <p class="text-gray-700 text-center mb-6 leading-relaxed text-lg">
+                "تجربة تسوق رائعة! جودة المنتجات ممتازة والخدمة سريعة. بالتأكيد سأطلب مرة أخرى. أنصح الجميع بالتسوق من هذا المتجر المميز."
+              </p>
+              <!-- Customer Info -->
+              <div class="flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center ml-4">
+                  <svg class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div class="text-center">
+                  <h4 class="font-semibold text-gray-900">أحمد محمد</h4>
+                  <p class="text-sm text-gray-500">عميل دائم</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="swiper-slide">
+            <div class="bg-white rounded-2xl transition-all duration-300 p-6 md:p-8 h-full">
+              <!-- Stars Rating -->
+              <div class="flex justify-center mb-4">
+                <div class="flex gap-1">
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                </div>
+              </div>
+              <!-- Review Text -->
+              <p class="text-gray-700 text-center mb-6 leading-relaxed text-lg">
+                "خدمة عملاء متميزة وتوصيل سريع. المنتجات كما هي موضحة في الصور تماماً. شكراً لكم على الخدمة الرائعة والاهتمام بالتفاصيل."
+              </p>
+              <!-- Customer Info -->
+              <div class="flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center ml-4">
+                  <svg class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div class="text-center">
+                  <h4 class="font-semibold text-gray-900">سارة عبدالله</h4>
+                  <p class="text-sm text-gray-500">عميلة مميزة</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="swiper-slide">
+            <div class="bg-white rounded-2xl transition-all duration-300 p-6 md:p-8 h-full">
+              <!-- Stars Rating -->
+              <div class="flex justify-center mb-4">
+                <div class="flex gap-1">
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                </div>
+              </div>
+              <!-- Review Text -->
+              <p class="text-gray-700 text-center mb-6 leading-relaxed text-lg">
+                "أسعار مناسبة وجودة ممتازة. التعامل مع فريق خدمة العملاء كان رائعاً. المتجر يستحق التقييم الممتاز بكل صدق."
+              </p>
+              <!-- Customer Info -->
+              <div class="flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center ml-4">
+                  <svg class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div class="text-center">
+                  <h4 class="font-semibold text-gray-900">خالد العلي</h4>
+                  <p class="text-sm text-gray-500">عميل جديد</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="swiper-slide">
+            <div class="bg-white rounded-2xl transition-all duration-300 p-6 md:p-8 h-full">
+              <!-- Stars Rating -->
+              <div class="flex justify-center mb-4">
+                <div class="flex gap-1">
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                </div>
+              </div>
+              <!-- Review Text -->
+              <p class="text-gray-700 text-center mb-6 leading-relaxed text-lg">
+                "مجموعة رائعة من الأزياء العصرية. الموقع سهل الاستخدام والدفع آمن. تم تسليم الطلب في الوقت المحدد. تجربة ممتازة!"
+              </p>
+              <!-- Customer Info -->
+              <div class="flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center ml-4">
+                  <svg class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div class="text-center">
+                  <h4 class="font-semibold text-gray-900">نورا الحربي</h4>
+                  <p class="text-sm text-gray-500">عميلة راضية</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 5 -->
+          <div class="swiper-slide">
+            <div class="bg-white rounded-2xl transition-all duration-300 p-6 md:p-8 h-full">
+              <!-- Stars Rating -->
+              <div class="flex justify-center mb-4">
+                <div class="flex gap-1">
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                </div>
+              </div>
+              <!-- Review Text -->
+              <p class="text-gray-700 text-center mb-6 leading-relaxed text-lg">
+                "تشكيلة متنوعة ومقاسات دقيقة. التغليف احترافي والشحن مجاني. هذا المتجر أصبح خياري الأول للتسوق أونلاين."
+              </p>
+              <!-- Customer Info -->
+              <div class="flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center ml-4">
+                  <svg class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div class="text-center">
+                  <h4 class="font-semibold text-gray-900">محمد القحطاني</h4>
+                  <p class="text-sm text-gray-500">عميل مخلص</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Navigation arrows -->
+        <div class="swiper-button-prev reviews-prev">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </div>
+        <div class="swiper-button-next reviews-next">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Overall Rating Summary -->
+      <div class="mt-16 text-center">
+        <div class="bg-white rounded-2xl shadow-lg p-8 max-w-md mx-auto">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">تقييم العملاء الإجمالي</h3>
+          <div class="flex justify-center items-center gap-4 mb-4">
+            <span class="text-4xl font-bold text-black">4.9</span>
+            <div class="flex gap-1">
+              <svg class="w-6 h-6 text-amber-400 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-6 h-6 text-amber-400 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-6 h-6 text-amber-400 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-6 h-6 text-amber-400 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-6 h-6 text-amber-400 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-gray-600 text-lg">
+            بناءً على <span class="font-semibold text-black">2,547</span> تقييم من عملائنا الكرام
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer bg-gradient-to-br from-[#000000] to-[#000000] opacity-90" style="border-radius: 2rem 2rem 0 0;">
     <!-- Main Footer -->
@@ -2412,6 +2734,39 @@
 
   <script src="./script.js"></script>
   
+  <!-- Reviews Swiper Initialization -->
+  <script>
+    // Initialize Reviews Swiper
+    var reviewsSwiper = new Swiper('.reviewsSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      centeredSlides: false,
+      loop: true,
+      autoHeight: false,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.reviews-next',
+        prevEl: '.reviews-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+      },
+    });
+  </script>
 
   <!-- Search Modal -->
   <div id="search-modal" class="fixed inset-0 bg-white/30 backdrop-blur-sm z-50 hidden items-center justify-center">
