@@ -59,7 +59,50 @@
       }
     }
     
-    @media (min-width: 769px) {
+    /* Tablet Layout (769px - 1023px) */
+    @media (min-width: 769px) and (max-width: 1023px) {
+      .main-image-container {
+        min-height: 350px;
+        max-height: 450px;
+      }
+      
+      .thumbnail-container {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .product-container {
+        flex-direction: column !important;
+        gap: 1.5rem;
+      }
+      
+      .product-images {
+        width: 100% !important;
+        margin-bottom: 1rem;
+      }
+      
+      .product-details {
+        width: 100% !important;
+        padding: 1.5rem;
+      }
+      
+      /* Adjust thumbnail layout for tablets */
+      .thumbnail-container {
+        flex: none !important;
+      }
+      
+      /* Ensure proper spacing */
+      .grid {
+        gap: 0.75rem;
+      }
+      
+      /* Make thumbnails horizontal on tablets */
+      .md\\:flex-row {
+        flex-direction: row !important;
+      }
+    }
+    
+    @media (min-width: 1024px) {
       .main-image-container {
         min-height: 500px;
       }
@@ -77,10 +120,37 @@
       animation: loading 1.5s infinite;
     }
     
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
+         @keyframes loading {
+       0% { background-position: 200% 0; }
+       100% { background-position: -200% 0; }
+     }
+     
+     /* Additional tablet specific fixes */
+     @media (min-width: 769px) and (max-width: 1023px) {
+       .container {
+         padding-left: 1rem;
+         padding-right: 1rem;
+       }
+       
+       /* Force vertical stacking on tablets */
+       .product-container.md\\:flex {
+         display: flex !important;
+         flex-direction: column !important;
+       }
+       
+       /* Ensure thumbnails don't break layout */
+       .thumbnail-container.flex-1 {
+         flex: 0 0 auto !important;
+         width: 70px !important;
+         min-width: 70px !important;
+       }
+       
+       /* Adjust main content spacing */
+       main.container {
+         padding-top: 2rem;
+         padding-bottom: 2rem;
+       }
+     }
   </style>
 </head>
 <body class="font-[Tajawal]">
@@ -234,13 +304,13 @@
 
         <div class="bg-white overflow-hidden">
 
-          <div class="md:flex sm:flex-col md:flex-row lg:flex-row">
+          <div class="product-container md:flex sm:flex-col md:flex-row lg:flex-row">
                 <!-- Product Images -->
-                <div class="md:w-1/2 relative">
-                    <div class="grid grid-cols-4 md:grid-cols-1 gap-4">
+                <div class="product-images md:w-1/2 relative">
+                    <div>
                         
                         <!-- Main Image Container -->
-                        <div class="col-span-4 md:col-span-1 order-2 md:order-1">
+                        <div class="col-span-4 md:col-span-1 order-2 md:order-1 m-auto flex justify-center items-center">
                             <div class="main-image-container relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden shadow-lg group">
                                 <div id="mainImageContainer" class="relative w-full h-full">
                                     <img id="mainImage" 
@@ -277,8 +347,8 @@
                         </div>
                         
                         <!-- Thumbnail Images -->
-                        <div class="col-span-4 md:col-span-1 order-1 md:order-2">
-                            <div class="flex md:flex-row gap-3 justify-center md:justify-start">
+                        <div class="col-span-4 md:col-span-1 order-1 md:order-2 m-auto flex justify-center items-center">
+                                                         <div class="flex md:flex-row gap-3 justify-center md:justify-start overflow-x-auto pb-2">
                                 <div class="thumbnail-container flex-1 md:flex-none aspect-square max-w-20 md:max-w-none rounded-xl overflow-hidden shadow-lg cursor-pointer hover:scale-105 transition-all border-3 border-[#402a32] relative group">
                                     <img src="img/products/3.jpg" alt="صورة مصغرة" class="w-full h-full object-cover">
                                     <div class="absolute inset-0 bg-[#402a32]/20 group-hover:bg-[#402a32]/10 transition-all"></div>
@@ -303,7 +373,7 @@
 
 
                 <!-- Product Details -->
-                <div class="md:w-1/2 p-8 bg-gradient-to-br from-white to-[#f0e6e9]/30">
+                <div class="product-details md:w-1/2 p-8 bg-gradient-to-br from-white to-[#f0e6e9]/30">
 
                   
                   <div class="flex justify-between items-start">
