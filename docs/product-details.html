@@ -125,6 +125,63 @@
        100% { background-position: -200% 0; }
      }
      
+     /* Modal Styles */
+     .modal-thumb.active {
+       border-color: #402a32 !important;
+       border-width: 2px !important;
+     }
+     
+     .modal-thumb:hover {
+       transform: scale(1.05);
+       transition: transform 0.2s ease;
+     }
+     
+     /* Modal animation improvements */
+     #product-modal {
+       backdrop-filter: blur(8px);
+     }
+     
+     #modal-content {
+       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+     }
+     
+     /* Smooth scrollbar for modal */
+     #modal-content::-webkit-scrollbar {
+       width: 6px;
+     }
+     
+     #modal-content::-webkit-scrollbar-track {
+       background: #f1f1f1;
+       border-radius: 10px;
+     }
+     
+     #modal-content::-webkit-scrollbar-thumb {
+       background: #402a32;
+       border-radius: 10px;
+     }
+     
+           #modal-content::-webkit-scrollbar-thumb:hover {
+        background: #2e1e24;
+      }
+      
+      /* Mobile modal responsive */
+      @media (max-width: 768px) {
+        #modal-content {
+          margin: 1rem;
+          max-height: calc(100vh - 2rem);
+        }
+        
+        .modal-thumbnails {
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+        
+        .modal-thumb {
+          width: 3rem !important;
+          height: 3rem !important;
+        }
+      }
+     
      /* Additional tablet specific fixes */
      @media (min-width: 769px) and (max-width: 1023px) {
        .container {
@@ -520,7 +577,7 @@
                                 <img src="img/products/1.jpg" alt="بدلة كلاسيكية" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                 <!-- Hover Actions -->
                                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                                    <button class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
+                                    <button onclick="openProductModal('بدلة كلاسيكية سوداء', 'img/products/1.jpg', '٢,٤٩٩ ر.س', '٢,٩٩٩ ر.س')" class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                     <button class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
@@ -548,7 +605,7 @@
                                 <img src="img/products/2.jpg" alt="بدلة عصرية" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                 <!-- Hover Actions -->
                                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                                    <button class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
+                                    <button onclick="openProductModal('بدلة عصرية رمادية', 'img/products/2.jpg', '٢,٧٩٩ ر.س', '٣,٢٩٩ ر.س')" class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                     <button class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
@@ -576,7 +633,7 @@
                                 <img src="img/products/5.jpg" alt="بدلة زفاف" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                 <!-- Hover Actions -->
                                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                                    <button class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
+                                    <button onclick="openProductModal('بدلة زفاف فاخرة', 'img/products/5.jpg', '٣,٩٩٩ ر.س', '٤,٥٩٩ ر.س')" class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                     <button class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
@@ -604,7 +661,7 @@
                                 <img src="img/products/6.jpg" alt="بدلة سهرة" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                 <!-- Hover Actions -->
                                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                                    <button class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
+                                    <button onclick="openProductModal('بدلة سهرة أنيقة', 'img/products/6.jpg', '٢,٨٩٩ ر.س', '٣,٣٩٩ ر.س')" class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                     <button class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
@@ -634,25 +691,135 @@
         
     </main>
 
+    <!-- Product Quick View Modal -->
+    <div id="product-modal" onclick="handleModalClick(event)" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden opacity-0 transition-all duration-300">
+        <div class="flex items-center justify-center min-h-screen p-4">
+                          <div onclick="event.stopPropagation()" class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300" id="modal-content">
+                <!-- Modal Header -->
+                <div class="sticky top-0 bg-white/95 backdrop-blur-sm rounded-t-3xl p-6 border-b border-gray-100 z-10">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-2xl font-bold text-[#402a32]">معاينة سريعة للمنتج</h2>
+                        <button onclick="closeProductModal()" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-[#402a32] hover:scale-110 transition-all">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
 
+                <!-- Modal Body -->
+                <div class="p-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Product Image -->
+                        <div class="space-y-4">
+                            <div class="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden">
+                                <img id="modal-main-image" src="img/products/1.jpg" alt="المنتج" class="w-full h-full object-cover">
+                            </div>
+                                                         <!-- Thumbnail Images -->
+                             <div class="flex gap-3 justify-center modal-thumbnails">
+                                 <div class="w-16 h-16 rounded-lg overflow-hidden border-2 border-[#402a32] cursor-pointer modal-thumb active" onclick="changeModalImage('img/products/1.jpg', this)">
+                                     <img src="img/products/1.jpg" alt="صورة مصغرة" class="w-full h-full object-cover">
+                                 </div>
+                                 <div class="w-16 h-16 rounded-lg overflow-hidden border-2 border-transparent hover:border-[#402a32] cursor-pointer transition-colors modal-thumb" onclick="changeModalImage('img/products/2.jpg', this)">
+                                     <img src="img/products/2.jpg" alt="صورة مصغرة" class="w-full h-full object-cover">
+                                 </div>
+                                 <div class="w-16 h-16 rounded-lg overflow-hidden border-2 border-transparent hover:border-[#402a32] cursor-pointer transition-colors modal-thumb" onclick="changeModalImage('img/products/3.jpg', this)">
+                                     <img src="img/products/3.jpg" alt="صورة مصغرة" class="w-full h-full object-cover">
+                                 </div>
+                             </div>
+                        </div>
 
+                        <!-- Product Details -->
+                        <div class="space-y-6">
+                            <div>
+                                <h3 id="modal-product-title" class="text-2xl font-bold text-[#402a32] mb-2">بدلة كلاسيكية سوداء</h3>
+                                <p class="text-[#402a32]/70">مجموعة الأناقة الكلاسيكية</p>
+                            </div>
 
+                            <!-- Rating -->
+                            <div class="flex items-center gap-2">
+                                <div class="flex text-[#402a32]">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-[#402a32]/70">(٤.٥)</span>
+                                <span class="text-[#402a32] hover:underline cursor-pointer">٨٥ تقييم</span>
+                            </div>
 
+                            <!-- Price -->
+                            <div class="flex items-center gap-3">
+                                <span id="modal-price" class="text-3xl font-bold text-[#402a32]">٢,٤٩٩ ر.س</span>
+                                <span id="modal-old-price" class="text-lg text-[#402a32]/60 line-through">٢,٩٩٩ ر.س</span>
+                                <span class="bg-[#f0e6e9] text-[#402a32] px-3 py-1 rounded-full text-sm font-semibold">خصم ١٥٪</span>
+                            </div>
 
+                            <!-- Size Selection -->
+                            <div>
+                                <h4 class="text-lg font-semibold text-[#402a32] mb-3">المقاسات المتوفرة</h4>
+                                <div class="flex gap-2 flex-wrap">
+                                    <button class="w-12 h-12 rounded-lg border-2 border-[#402a32] text-[#402a32] hover:bg-[#402a32] hover:text-white transition-all">48</button>
+                                    <button class="w-12 h-12 rounded-lg border-2 border-[#402a32] text-[#402a32] hover:bg-[#402a32] hover:text-white transition-all">50</button>
+                                    <button class="w-12 h-12 rounded-lg border-2 border-[#402a32] text-[#402a32] hover:bg-[#402a32] hover:text-white transition-all">52</button>
+                                    <button class="w-12 h-12 rounded-lg border-2 border-[#402a32] text-[#402a32] hover:bg-[#402a32] hover:text-white transition-all">54</button>
+                                </div>
+                            </div>
 
+                            <!-- Color Selection -->
+                            <div>
+                                <h4 class="text-lg font-semibold text-[#402a32] mb-3">الألوان المتوفرة</h4>
+                                <div class="flex gap-3">
+                                    <button class="w-8 h-8 rounded-full bg-[#402a32] border-2 border-[#402a32] ring-2 ring-offset-2 ring-[#402a32] transition-all"></button>
+                                    <button class="w-8 h-8 rounded-full bg-[#63474d] border-2 border-[#402a32] hover:ring-2 hover:ring-offset-2 hover:ring-[#402a32] transition-all"></button>
+                                    <button class="w-8 h-8 rounded-full bg-[#55474c] border-2 border-[#402a32] hover:ring-2 hover:ring-offset-2 hover:ring-[#402a32] transition-all"></button>
+                                </div>
+                            </div>
 
+                            <!-- Quantity -->
+                            <div>
+                                <h4 class="text-lg font-semibold text-[#402a32] mb-3">الكمية</h4>
+                                <div class="flex items-center bg-white rounded-lg border-2 border-[#402a32] w-fit">
+                                    <button class="w-10 h-10 rounded-lg text-[#402a32] hover:bg-[#f0e6e9] transition-all flex items-center justify-center" onclick="decrementModalQuantity()">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <input type="number" id="modal-quantity" value="1" min="1" max="99" class="w-16 h-10 text-center text-[#402a32] font-semibold bg-transparent focus:outline-none [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                                    <button class="w-10 h-10 rounded-lg text-[#402a32] hover:bg-[#f0e6e9] transition-all flex items-center justify-center" onclick="incrementModalQuantity()">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
 
+                            <!-- Action Buttons -->
+                            <div class="flex gap-4 pt-4">
+                                                                 <button class="flex-1 bg-[#402a32] text-white py-3 px-6 rounded-lg hover:bg-[#2e1e24] transition-all font-medium transform hover:scale-105 active:scale-95">
+                                     <i class="fas fa-shopping-cart ml-2"></i>
+                                     أضف إلى السلة
+                                 </button>
+                                 <button class="flex-1 border-2 border-[#402a32] text-[#402a32] py-3 px-6 rounded-lg hover:bg-[#f0e6e9] transition-all font-medium transform hover:scale-105 active:scale-95">
+                                     <i class="fas fa-bolt ml-2"></i>
+                                     شراء الآن
+                                 </button>
+                            </div>
 
-
-
-
-
-
-
-
-
-
-
+                            <!-- Additional Info -->
+                            <div class="border-t border-[#402a32]/10 pt-4">
+                                <div class="flex items-center gap-6 text-[#402a32]/80">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fas fa-truck text-[#402a32]"></i>
+                                        <span>توصيل مجاني</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <i class="fas fa-undo text-[#402a32]"></i>
+                                        <span>ضمان الإرجاع</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
   <!-- Footer -->
   <footer class="footer bg-gradient-to-br from-[#000000] to-[#000000] opacity-90" style="border-radius: 2rem 2rem 0 0;">
@@ -794,6 +961,121 @@
     if (e.key === 'Escape' && !searchModal.classList.contains('hidden')) {
       searchModal.classList.add('hidden');
       searchModal.classList.remove('flex');
+    }
+  });
+
+  // Product Modal Functions
+  function openProductModal(title, image, price, oldPrice) {
+    const modal = document.getElementById('product-modal');
+    const modalContent = document.getElementById('modal-content');
+    
+    // Update modal content
+    document.getElementById('modal-product-title').textContent = title;
+    document.getElementById('modal-main-image').src = image;
+    document.getElementById('modal-price').textContent = price;
+    document.getElementById('modal-old-price').textContent = oldPrice;
+    
+    // Update first thumbnail to match main image
+    const firstThumb = document.querySelector('.modal-thumb img');
+    if (firstThumb) {
+        firstThumb.src = image;
+    }
+    
+    // Reset thumbnail selection
+    document.querySelectorAll('.modal-thumb').forEach((thumb, index) => {
+        thumb.classList.remove('active', 'border-[#402a32]');
+        thumb.classList.add('border-transparent');
+        if (index === 0) {
+            thumb.classList.add('active', 'border-[#402a32]');
+            thumb.classList.remove('border-transparent');
+            // Update the onclick for the first thumbnail
+            thumb.setAttribute('onclick', `changeModalImage('${image}', this)`);
+        }
+    });
+    
+    // Reset quantity to 1
+    document.getElementById('modal-quantity').value = 1;
+    
+    // Show modal with animation
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+        modalContent.classList.remove('scale-95');
+        modalContent.classList.add('scale-100');
+    }, 10);
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProductModal() {
+    const modal = document.getElementById('product-modal');
+    const modalContent = document.getElementById('modal-content');
+    
+    // Hide modal with animation
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0');
+    modalContent.classList.remove('scale-100');
+    modalContent.classList.add('scale-95');
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+    
+    // Restore body scroll
+    document.body.style.overflow = 'auto';
+  }
+
+  // Modal image change function
+  function changeModalImage(imageSrc, element) {
+    document.getElementById('modal-main-image').src = imageSrc;
+    
+    // Update active thumbnail
+    document.querySelectorAll('.modal-thumb').forEach(thumb => {
+        thumb.classList.remove('active');
+        thumb.classList.remove('border-[#402a32]');
+        thumb.classList.add('border-transparent');
+    });
+    
+    element.classList.add('active');
+    element.classList.add('border-[#402a32]');
+    element.classList.remove('border-transparent');
+  }
+
+  // Modal quantity functions
+  function incrementModalQuantity() {
+    const quantityInput = document.getElementById('modal-quantity');
+    let currentValue = parseInt(quantityInput.value);
+    if (currentValue < 99) {
+        quantityInput.value = currentValue + 1;
+    }
+  }
+
+  function decrementModalQuantity() {
+    const quantityInput = document.getElementById('modal-quantity');
+    let currentValue = parseInt(quantityInput.value);
+    if (currentValue > 1) {
+        quantityInput.value = currentValue - 1;
+    }
+  }
+
+  // Handle modal background click
+  function handleModalClick(event) {
+    const modalContent = document.getElementById('modal-content');
+    // Check if the click was on the modal background (not on the content)
+    if (!modalContent.contains(event.target)) {
+      closeProductModal();
+    }
+  }
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('product-modal');
+        if (modal && !modal.classList.contains('hidden')) {
+            closeProductModal();
+        }
     }
   });
 
