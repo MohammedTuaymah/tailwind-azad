@@ -13,56 +13,6 @@
   <!-- Add Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   
-  <!-- Category Filter JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const categoryButtons = document.querySelectorAll('.category-btn');
-      const categoryProducts = document.querySelectorAll('.category-product');
-
-      // Function to handle category filtering
-      const filterProducts = (category) => {
-        categoryProducts.forEach(product => {
-          const productCategory = product.dataset.category;
-          
-          if (category === 'all' || category === productCategory) {
-            product.classList.remove('hidden');
-            setTimeout(() => {
-              product.style.opacity = '1';
-            }, 50);
-          } else {
-            product.style.opacity = '0';
-            setTimeout(() => {
-              product.classList.add('hidden');
-            }, 300);
-          }
-        });
-      };
-
-      // Add click event listeners to category buttons
-      categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          // Remove active class from all buttons
-          categoryButtons.forEach(btn => {
-            btn.classList.remove('active', 'bg-amber-900', 'text-white');
-            btn.classList.add('bg-white');
-          });
-
-          // Add active class to clicked button
-          button.classList.add('active', 'bg-amber-900', 'text-white');
-          button.classList.remove('bg-white');
-
-          // Filter products based on selected category
-          const selectedCategory = button.dataset.category;
-          filterProducts(selectedCategory);
-        });
-      });
-
-      // Debug log
-      console.log('Category filter script loaded');
-      console.log('Found category buttons:', categoryButtons.length);
-      console.log('Found category products:', categoryProducts.length);
-    });
-  </script>
   <style>
     /* Apply Tajawal font to all elements */
     * {
@@ -129,58 +79,51 @@
   </style>
   <title>الملف الشخصي | محمد</title>
 </head>
-<body class="bg-gray-50">
+<body class="font-[Tajawal] text-gray-900">
+
+
   <!-- Header -->
   <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50">
+    <!-- Overlay for mobile menu background -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300"></div>
+    
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
+
+
+
         <!-- Mobile menu button -->
         <div class="md:hidden flex items-center">
-          <button id="mobile-menu-button" type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2.5 rounded-full text-gray-400 hover:text-amber-900 hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 transition duration-300">
-            <svg id="menu-icon-open" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+            <button id="mobile-menu-button" type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2.5 rounded-full text-gray-400 hover:text-amber-900 hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 transition duration-300">
+              <svg id="menu-icon-open" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
         </div>
-
 
 
         <!--language and currency icon and search icon -->
         <div class="hidden md:flex items-center space-x-reverse space-x-2">
 
-            <!-- Search Icon -->
-            <!-- <button id="search-button" class="w-10 h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-              </svg>
-            </button> -->
-            <!-- user icon -->
-            <!-- <button class="w-10 h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </button> -->
-  
-            <!-- Language Selector -->
-            <button class="w-10 mr-2 h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-              </svg>
-            </button>
-  
-            <!-- Currency Selector -->
-            <button class="w-10 h-10 mr-2 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </button>
-            
-          </div>
+          <!-- Language Selector -->
+          <button class="w-10 mr-2 h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+            </svg>
+          </button>
 
+          <!-- Currency Selector -->
+          <button class="w-10 h-10 mr-2 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </button>
           
+        </div>
+        
         <!-- Logo -->
         <div class="flex-shrink-0 flex items-center">
           <div class="flex items-center gap-2">
@@ -190,7 +133,9 @@
           </div>
         </div>
 
-        <!-- Icons -->
+
+
+        <!-- Call to Action -->
         <div class="flex items-center space-x-reverse space-x-2">
           <!-- Search Icon -->
           <button id="search-button" class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
@@ -205,7 +150,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
           </button>
-
+          
           <!-- Cart Icon -->
           <button class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 mr-2 cart-btn flex items-center justify-center text-white transition-all duration-300 shadow-md hover:shadow-lg">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-4.5 sm:w-4.5 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -213,25 +158,63 @@
             </svg>
           </button>
         </div>
-      </div>
+        
+      
+      <!-- Mobile menu overlay -->
+      <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-40" onclick="closeMobileMenu()"></div>
 
-      <!-- Navigation -->
-      <nav class="hidden md:flex space-x-reverse space-x-1 justify-center">
-        <a href="index.html" class="text-gray-500 hover:text-amber-900 px-4 py-2 rounded-full font-medium transition duration-300 hover:bg-indigo-50 flex items-center gap-1">
-          <span>الرئيسية</span>
-        </a>
-        <a href="product-details.html" class="text-gray-500 hover:text-amber-900 px-4 py-2 rounded-full font-medium transition duration-300 hover:bg-indigo-50 flex items-center gap-1">
-          <span>خدماتنا</span>
-        </a>
-        <a href="blogs.html" class="text-gray-500 hover:text-amber-900 px-4 py-2 rounded-full font-medium transition duration-300 hover:bg-indigo-50 flex items-center gap-1">
-          <span>المدونة</span>
-        </a>
-      </nav>
+      <!-- Mobile menu (hidden by default) -->
+      <div id="mobile-menu" class="hidden md:hidden transition-all duration-300 ease-in-out absolute top-20 right-0 left-0 z-50 transform origin-top">
+        <div class="mx-4 px-2 pt-2 pb-4 space-y-1 bg-white/95 backdrop-blur-lg rounded-2xl mt-2 shadow-lg border border-indigo-50">
+          <a href="#" class="text-gray-900 hover:text-amber-900 px-4 py-3 rounded-xl font-medium transition duration-300 hover:bg-indigo-50 flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span>الرئيسية</span>
+          </a>
+          <a href="./product-details.html" class="text-gray-500 hover:text-amber-900 px-4 py-3 rounded-xl font-medium transition duration-300 hover:bg-indigo-50 flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>المنتج</span>
+          </a>
+
+          <a href="./blogs.html" class="text-gray-500 hover:text-amber-900 px-4 py-2 rounded-full font-medium transition duration-300 hover:bg-indigo-50 flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span>المدونة</span>
+          </a>
+          
+          <div class="mt-4 px-4 py-3">
+            <a href="#" class="w-full flex items-center justify-center px-6 py-3 main-cta-btn text-base font-bold rounded-full shadow-md hover:shadow-lg transition-all duration-300">
+              <span>ابدأ الآن</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex space-x-reverse space-x-1 justify-center">
+          <a href="#" class="text-gray-900 hover:text-amber-900 px-4 py-2 rounded-full font-medium transition duration-300 hover:bg-indigo-50 flex items-center gap-1">
+            <span>الرئيسية</span>
+          </a>
+          <a href="./product-details.html" class="text-gray-500 hover:text-amber-900 px-4 py-2 rounded-full font-medium transition duration-300 hover:bg-indigo-50 flex items-center gap-1">
+            <span>المنتج</span>
+          </a>
+          <a href="./blogs.html" class="text-gray-500 hover:text-amber-900 px-4 py-2 rounded-full font-medium transition duration-300 hover:bg-indigo-50 flex items-center gap-1">
+            <span>المدونة</span>
+          </a>
+        </nav>
+        
   </header>
 
   <!-- Main Content -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" style="height: 100vh;">
     <!-- Page Title -->
     <div class="mb-8">
       <h1 class="text-2xl md:text-3xl font-bold text-gray-900">الملف الشخصي</h1>
@@ -384,79 +367,6 @@
               </li>
             </ul>
           </div>
-        </div>
-      </div>
-    </div>
-
-  <!-- Footer -->
-  <footer class="footer bg-gradient-to-br from-[#000000] to-[#000000] opacity-90" style="border-radius: 2rem 2rem 0 0;">
-    <!-- Main Footer -->
-    <div class="max-w-[1920px] mx-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-          
-          <!-- Logo and About -->
-          <div class="col-span-1 md:col-span-2 lg:col-span-1">
-            <div class="flex items-center gap-2 mb-6">
-              <img src="./img/clear_azad.png" alt="logo" class="w-12 h-12">
-              <span class="text-2xl font-bold text-white">متجرنا</span>
-            </div>
-            <p class="text-white mb-8 leading-relaxed text-lg">
-              نقدم لكم أفضل المنتجات بجودة عالية وأسعار مناسبة، مع خدمة عملاء متميزة على مدار الساعة.
-            </p>
-            <div class="flex items-center gap-4">
-              <a href="#" class="w-12 h-12 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
-                <i class="ph ph-instagram-logo text-2xl"></i>
-              </a>
-              <a href="#" class="w-12 h-12 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
-                <i class="ph ph-twitter-logo text-2xl"></i>
-              </a>
-              <a href="#" class="w-12 h-12 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
-                <i class="ph ph-facebook-logo text-2xl"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Quick Links -->
-          <div class="lg:mr-auto lg:pl-12">
-            <h3 class="text-white font-bold mb-6 text-xl">روابط سريعة</h3>
-            <ul class="space-y-4">
-              <li>
-                <a href="#" class="text-white hover:text-amber-900 transition-colors duration-300 text-lg">عن المتجر</a>
-              </li>
-              <li>
-                <a href="#" class="text-white hover:text-amber-900 transition-colors duration-300 text-lg">سياسة الخصوصية</a>
-              </li>
-              <li>
-                <a href="#" class="text-white hover:text-amber-900 transition-colors duration-300 text-lg">الشروط والأحكام</a>
-              </li>
-              <li>
-                <a href="#" class="text-white hover:text-amber-900 transition-colors duration-300 text-lg">الأسئلة الشائعة</a>
-              </li>
-              <li>
-                <a href="#" class="text-white hover:text-amber-900 transition-colors duration-300 text-lg">اتصل بنا</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Contact Info -->
-          <div class="lg:mr-auto lg:pl-12">
-            <h3 class="text-white font-bold mb-6 text-xl">معلومات التواصل</h3>
-            <ul class="space-y-4">
-              <li class="flex items-center gap-3 text-white">
-                <i class="ph ph-map-pin text-white text-xl"></i>
-                <span class="text-lg">الرياض، المملكة العربية السعودية</span>
-              </li>
-              <li class="flex items-center gap-3 text-white">
-                <i class="ph ph-phone text-white text-xl"></i>
-                <span class="text-lg" dir="ltr">+966 123 456 789</span>
-              </li>
-              <li class="flex items-center gap-3 text-white">
-                <i class="ph ph-envelope text-white text-xl"></i>
-                <span class="text-lg">info@store.com</span>
-              </li>
-            </ul>
-          </div>
  
         </div>
       </div>
@@ -467,7 +377,7 @@
       <div class="max-w-[1920px] mx-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-            <p class="text-white text-base">© 2024 جميع الحقوق محفوظة</p>
+            <p class="text-white text-base">© 2025 جميع الحقوق محفوظة</p>
           </div>
         </div>
       </div>
@@ -476,167 +386,234 @@
 
 
 
-  <!-- Cart Sidebar -->
-  <div id="cart-sidebar" class="fixed left-0 top-0 h-full w-[90%] sm:w-[400px] bg-white shadow-2xl transform translate-x-[-100%] transition-transform duration-300 ease-in-out z-50">
-    <div class="h-full flex flex-col">
-      <!-- Cart Header -->
-      <div class="p-4 border-b flex items-center justify-between bg-black text-white">
-        <h2 class="text-xl font-bold">سلة التسوق</h2>
-        <button onclick="toggleCart()" class="p-2 hover:bg-gray-800 rounded-full transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      
-      <!-- Cart Items -->
-      <div class="flex-1 overflow-y-auto p-4 space-y-4">
-        <!-- Sample Cart Item -->
-        <div class="flex items-center space-x-4 space-x-reverse bg-gray-50 p-3 rounded-lg">
-          <img src="./img/products/1.jpg" alt="Product" class="w-20 h-20 object-cover rounded-md">
-          <div class="flex-1">
-            <h3 class="font-medium text-gray-900">منتج فاخر</h3>
-            <p class="text-gray-600 text-sm">$99.99</p>
-
-            <div class="flex items-center mt-2 space-x-2 space-x-reverse">
-              <button class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">-</button>
-              <span class="mx-2">1</span>
-              <button class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">+</button>
-            </div>
-
-          </div>
-          <button class="text-red-500 hover:text-red-600 p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      
-      <!-- Cart Footer -->
-      <div class="border-t p-4 bg-gray-50">
-        <div class="flex justify-between items-center mb-4">
-          <span class="font-medium">المجموع:</span>
-          <span class="font-bold text-lg">$99.99</span>
-        </div>
-        <button class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
-          إتمام الشراء
-        </button>
-      </div>
-    </div>
-  </div>
-
-  
-  <!-- Cart Overlay -->
-  <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden z-40" onclick="toggleCart()"></div>
-
-  <!-- User Sidebar -->
-  <div id="user-sidebar" class="fixed left-0 top-0 h-full w-[90%] sm:w-[400px] bg-white shadow-2xl transform translate-x-[-100%] transition-transform duration-300 ease-in-out z-50">
-    <div class="h-full flex flex-col">
-      <!-- User Header -->
-      <div class="p-4 border-b flex items-center justify-between bg-black text-white">
-        <h2 class="text-xl font-bold">حسابي</h2>
-        <button onclick="toggleUserMenu()" class="p-2 hover:bg-gray-800 rounded-full transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      
-      <!-- User Menu Items -->
-      <div class="flex-1 overflow-y-auto p-4 space-y-2">
-        <a href="./account.html" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-          <span class="font-medium">حسابي</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-          </svg>
-          <span class="font-medium">طلباتي</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-          <span class="font-medium">دوراتي</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-          </svg>
-          <span class="font-medium">تحميلاتي</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-          </svg>
-          <span class="font-medium">قائمة امنياتي</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-          </svg>
-          <span class="font-medium">تعليقاتي</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          <span class="font-medium">عناويني</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span class="font-medium">الملف الشخصي</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors text-red-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg>
-          <span class="font-medium">خروج</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- User Menu Overlay -->
-  <div id="user-overlay" class="hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-40" onclick="toggleUserMenu()"></div>
-
-
-
-  <script src="./script.js"></script>
-  
-
-  <!-- Search Modal -->
-  <div id="search-modal" class="fixed inset-0 bg-white/30 backdrop-blur-sm z-50 hidden items-center justify-center">
-    <div class="bg-white/80 backdrop-blur-sm w-full max-w-xl mx-4 rounded-3xl shadow-lg transform transition-all">
-      <div class="relative p-4">
-        <div class="relative">
-          <input type="text" placeholder="ابحث هنا..." class="w-full px-12 bg-transparent border-b-2 border-gray-200 focus:border-indigo-500 text-right text-lg placeholder-gray-400 focus:outline-none transition-colors duration-300">
-
-          <button id="close-search-modal" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed left-0 top-0 h-full w-[90%] sm:w-[400px] bg-white shadow-2xl transform translate-x-[-100%] transition-transform duration-300 ease-in-out z-50">
+      <div class="h-full flex flex-col">
+        <!-- Cart Header -->
+        <div class="p-4 border-b flex items-center justify-between bg-black text-white">
+          <h2 class="text-xl font-bold">سلة التسوق</h2>
+          <button onclick="toggleCart()" class="p-2 hover:bg-gray-800 rounded-full transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          
+        </div>
+        
+        <!-- Cart Items -->
+        <div class="flex-1 overflow-y-auto p-4 space-y-4">
+          <!-- Sample Cart Item -->
+          <div class="flex items-center space-x-4 space-x-reverse bg-gray-50 p-3 rounded-lg">
+            <img src="./img/products/1.jpg" alt="Product" class="w-20 h-20 object-cover rounded-md">
+            <div class="flex-1">
+              <h3 class="font-medium text-gray-900">منتج فاخر</h3>
+              <p class="text-gray-600 text-sm">$99.99</p>
+  
+              <div class="flex items-center mt-2 space-x-2 space-x-reverse">
+                <button class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">-</button>
+                <span class="mx-2">1</span>
+                <button class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">+</button>
+              </div>
+  
+            </div>
+            <button class="text-red-500 hover:text-red-600 p-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Cart Footer -->
+        <div class="border-t p-4 bg-gray-50">
+          <div class="flex justify-between items-center mb-4">
+            <span class="font-medium">المجموع:</span>
+            <span class="font-bold text-lg">$99.99</span>
+          </div>
+          <button class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+            إتمام الشراء
+          </button>
         </div>
       </div>
     </div>
-  </div>
+  
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden z-40" onclick="toggleCart()"></div>
+  
+    <!-- User Sidebar -->
+    <div id="user-sidebar" class="fixed left-0 top-0 h-full w-[90%] sm:w-[400px] bg-white shadow-2xl transform translate-x-[-100%] transition-transform duration-300 ease-in-out z-50">
+      <div class="h-full flex flex-col">
+        <!-- User Header -->
+        <div class="p-4 border-b flex items-center justify-between bg-black text-white">
+          <h2 class="text-xl font-bold">حسابي</h2>
+          <button onclick="toggleUserMenu()" class="p-2 hover:bg-gray-800 rounded-full transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        
+        <!-- User Menu Items -->
+        <div class="flex-1 overflow-y-auto p-4 space-y-2">
+          <a href="./account.html" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <span class="font-medium">حسابي</span>
+          </a>
+          
+          <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="font-medium">طلباتي</span>
+          </a>
+          
+          <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            <span class="font-medium">دوراتي</span>
+          </a>
+          
+          <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            <span class="font-medium">تحميلاتي</span>
+          </a>
+          
+          <a href="./wishlist.html" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span class="font-medium">قائمة امنياتي</span>
+          </a>
+          
+          <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+            </svg>
+            <span class="font-medium">تعليقاتي</span>
+          </a>
+          
+          <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span class="font-medium">عناويني</span>
+          </a>
+          
+          <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="font-medium">الملف الشخصي</span>
+          </a>
+          
+          <a href="#" class="flex items-center space-x-4 space-x-reverse p-3 rounded-lg hover:bg-gray-50 transition-colors text-red-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span class="font-medium">خروج</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- User Menu Overlay -->
+    <div id="user-overlay" class="hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-40" onclick="toggleUserMenu()"></div>
+  
+    <!-- Search Modal -->
+    <div id="search-modal" class="fixed inset-0 bg-white/30 backdrop-blur-sm z-50 hidden items-center justify-center">
+      <div class="bg-white/80 backdrop-blur-sm w-full max-w-xl mx-4 rounded-3xl shadow-lg transform transition-all">
+        <div class="relative p-4">
+          <div class="relative">
+            <input type="text" placeholder="ابحث هنا..." class="w-full px-12 bg-transparent border-b-2 border-gray-200 focus:border-indigo-500 text-right text-lg placeholder-gray-400 focus:outline-none transition-colors duration-300">
+  
+            <button id="close-search-modal" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="./script.js"></script>
+
+  <!-- Reviews Swiper Initialization -->
+  <script>
+    // Initialize Reviews Swiper
+    var reviewsSwiper = new Swiper('.reviewsSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      centeredSlides: false,
+      loop: true,
+      autoHeight: false,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.reviews-next',
+        prevEl: '.reviews-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+      },
+    });
+
+    // Initialize Products Swiper
+    var productsSwiper = new Swiper('.products-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      centeredSlides: false,
+      loop: true,
+      autoHeight: false,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.products-next',
+        prevEl: '.products-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+        1280: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+      },
+    });
+  </script>
+
+
 
   <script>
       // Search Modal Functionality
@@ -674,5 +651,9 @@
     }
   });
   </script>
+
+
+
+
 </body>
 </html>
