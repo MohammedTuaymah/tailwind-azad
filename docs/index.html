@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azad - Fashion & Style Store | Clothing & Accessories</title>
+  <meta name="description" content="Shop the latest fashion trends at Azad. Discover premium clothing, shoes, and accessories for men and women. Quality fashion at affordable prices.">
+  <meta name="keywords" content="Azad, fashion, clothing, accessories, shoes, style, trendy, men fashion, women fashion, online shopping">
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <link href="./style.css" rel="stylesheet">
   <link rel="stylesheet" href="./animations.css">
@@ -220,6 +223,19 @@
     .products-swiper .swiper-button-prev:after {
       display: none;
     }
+
+    /* Screen Reader Only Class for Accessibility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
   </style>
 
 </head>
@@ -394,9 +410,10 @@
     </div>
   </div>
 
-
-
-
+  <!-- Main Page Heading (Screen Reader Only) -->
+  <h1 class="sr-only">
+    آزاد - متجر الأزياء والموضة الرائد
+  </h1>
 
   <!-- Store Categories Carousel -->
   <div class="bg-white py-8">
@@ -410,7 +427,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/1.jpg" alt="ملابس" class="w-full h-full object-cover">
+                <img src="./img/products/1.jpg" alt="أيقونة قسم الملابس" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">ملابس</h3>
             </a>
@@ -419,7 +436,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/2.jpg" alt="أحذية" class="w-full h-full object-cover">
+                <img src="./img/products/2.jpg" alt="أيقونة قسم الأحذية" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">أحذية</h3>
             </a>
@@ -428,7 +445,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/3.jpg" alt="إكسسوارات" class="w-full h-full object-cover">
+                <img src="./img/products/3.jpg" alt="أيقونة قسم الإكسسوارات" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">إكسسوارات</h3>
             </a>
@@ -437,7 +454,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/4.jpg" alt="حقائب" class="w-full h-full object-cover">
+                <img src="./img/products/4.jpg" alt="أيقونة قسم الحقائب" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">حقائب</h3>
             </a>
@@ -446,7 +463,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/5.jpg" alt="حقائب" class="w-full h-full object-cover">
+                <img src="./img/products/5.jpg" alt="أيقونة قسم الحقائب" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">حقائب</h3>
             </a>
@@ -455,7 +472,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/6.jpg" alt="نظارات" class="w-full h-full object-cover">
+                <img src="./img/products/6.jpg" alt="أيقونة قسم النظارات" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">نظارات</h3>
             </a>
@@ -465,7 +482,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/7.jpg" alt="ساعات" class="w-full h-full object-cover">
+                <img src="./img/products/7.jpg" alt="أيقونة قسم الساعات" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">ساعات</h3>
             </a>
@@ -474,7 +491,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/8.jpg" alt="مجوهرات" class="w-full h-full object-cover">
+                <img src="./img/products/8.jpg" alt="أيقونة قسم المجوهرات" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">مجوهرات</h3>
             </a>
@@ -483,7 +500,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/9.jpg" alt="عطور" class="w-full h-full object-cover">
+                <img src="./img/products/9.jpg" alt="أيقونة قسم العطور" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">عطور</h3>
             </a>
@@ -492,7 +509,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/1.jpg" alt="إلكترونيات" class="w-full h-full object-cover">
+                <img src="./img/products/1.jpg" alt="أيقونة قسم الإلكترونيات" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">إلكترونيات</h3>
             </a>
@@ -501,7 +518,7 @@
           <div class="swiper-slide">
             <a href="#" class="flex flex-col items-center text-gray-800 hover:text-blue-600 transition-colors">
               <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
-                <img src="./img/products/2.jpg" alt="منزل وحديقة" class="w-full h-full object-cover">
+                <img src="./img/products/2.jpg" alt="أيقونة قسم المنزل والحديقة" class="w-full h-full object-cover">
               </div>
               <h3 class="text-sm font-medium">منزل وحديقة</h3>
             </a>
@@ -737,7 +754,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <!-- Banner 1 -->
-         <a href="#" class="block">
+         <a href="#" aria-label="تصفح العروض الخاصة وخصومات تصل إلى 50%" class="block">
         <div class="relative overflow-hidden rounded-lg shadow-lg h-[180px] sm:h-[200px]">
           <img src="./img/banners/5.jpg" alt="عروض خاصة" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 sm:p-6">
@@ -749,7 +766,7 @@
         </div>
         </a>
         <!-- Banner 2 -->
-        <a href="#" class="block">
+        <a href="#" aria-label="اكتشف التشكيلة الجديدة وأحدث الموديلات" class="block">
         <div class="relative overflow-hidden rounded-lg shadow-lg h-[180px] sm:h-[200px]">
           <img src="./img/banners/6.jpg" alt="تشكيلة جديدة" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 sm:p-6">
@@ -761,7 +778,7 @@
         </div>
         </a>
         <!-- Banner 3 -->
-        <a href="#" class="block">
+        <a href="#" aria-label="تسوق من الماركات الحصرية وأفخم الماركات العالمية" class="block">
         <div class="relative overflow-hidden rounded-lg shadow-lg h-[180px] sm:h-[200px]">
           <img src="./img/banners/5.jpg" alt="ماركات حصرية" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 sm:p-6">
@@ -1904,7 +1921,7 @@
             </p>
             
             <!-- Read More Button -->
-            <a href="#" class="inline-flex absolute bottom-5 left-5 items-center justify-center bg-black text-white p-3 rounded-full transition-all duration-300 hover:scale-110 mt-auto w-fit">
+            <a href="#" aria-label="اقرأ المزيد عن قصات الجينز" class="inline-flex absolute bottom-5 left-5 items-center justify-center bg-black text-white p-3 rounded-full transition-all duration-300 hover:scale-110 mt-auto w-fit">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -1940,7 +1957,7 @@
             </p>
             
             <!-- Read More Button -->
-            <a href="#" class="inline-flex absolute bottom-5 left-5 items-center justify-center bg-black text-white p-3 rounded-full transition-all duration-300 hover:scale-110 mt-auto w-fit">
+            <a href="#" aria-label="اقرأ المزيد عن التي شيرت" class="inline-flex absolute bottom-5 left-5 items-center justify-center bg-black text-white p-3 rounded-full transition-all duration-300 hover:scale-110 mt-auto w-fit">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -1976,7 +1993,7 @@
             </p>
             
             <!-- Read More Button -->
-            <a href="#" class="inline-flex absolute bottom-5 left-5 items-center justify-center bg-black text-white p-3 rounded-full transition-all duration-300 hover:scale-110 mt-auto w-fit">
+            <a href="#" aria-label="اقرأ المزيد عن الأحذية الرياضية" class="inline-flex absolute bottom-5 left-5 items-center justify-center bg-black text-white p-3 rounded-full transition-all duration-300 hover:scale-110 mt-auto w-fit">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -2153,7 +2170,7 @@
               <div class="space-y-6 mb-8">
                 <!-- Color Options -->
                 <div>
-                  <h4 class="font-medium text-gray-900 mb-3">اللون</h4>
+                  <p class="font-medium text-gray-900 mb-3">اللون</p>
                   <div class="flex flex-wrap gap-2" id="color-options">
                     <button class="w-10 h-10 rounded-full border-2 border-indigo-600 p-0.5">
                       <span class="block w-full h-full rounded-full bg-indigo-600"></span>
@@ -2170,7 +2187,7 @@
                 <!-- Size Options -->
                 <div>
                   <div class="flex justify-between items-center mb-3">
-                    <h4 class="font-medium text-gray-900">المقاس</h4>
+                    <p class="font-medium text-gray-900">المقاس</p>
                     <button class="text-sm text-amber-900 hover:text-indigo-700">دليل المقاسات</button>
                   </div>
                   <div class="flex flex-wrap gap-2" id="size-options">
@@ -2275,7 +2292,7 @@
                   </svg>
                 </div>
                 <div class="text-center">
-                  <h4 class="font-semibold text-gray-900">أحمد محمد</h4>
+                  <p class="font-semibold text-gray-900">أحمد محمد</p>
                   <p class="text-sm text-gray-500">عميل دائم</p>
                 </div>
               </div>
@@ -2317,7 +2334,7 @@
                   </svg>
                 </div>
                 <div class="text-center">
-                  <h4 class="font-semibold text-gray-900">سارة عبدالله</h4>
+                  <p class="font-semibold text-gray-900">سارة عبدالله</p>
                   <p class="text-sm text-gray-500">عميلة مميزة</p>
                 </div>
               </div>
@@ -2359,7 +2376,7 @@
                   </svg>
                 </div>
                 <div class="text-center">
-                  <h4 class="font-semibold text-gray-900">خالد العلي</h4>
+                  <p class="font-semibold text-gray-900">خالد العلي</p>
                   <p class="text-sm text-gray-500">عميل جديد</p>
                 </div>
               </div>
@@ -2401,7 +2418,7 @@
                   </svg>
                 </div>
                 <div class="text-center">
-                  <h4 class="font-semibold text-gray-900">نورا الحربي</h4>
+                  <p class="font-semibold text-gray-900">نورا الحربي</p>
                   <p class="text-sm text-gray-500">عميلة راضية</p>
                 </div>
               </div>
@@ -2443,7 +2460,7 @@
                   </svg>
                 </div>
                 <div class="text-center">
-                  <h4 class="font-semibold text-gray-900">محمد القحطاني</h4>
+                  <p class="font-semibold text-gray-900">محمد القحطاني</p>
                   <p class="text-sm text-gray-500">عميل مخلص</p>
                 </div>
               </div>
@@ -2514,13 +2531,13 @@
               نقدم لكم أفضل المنتجات بجودة عالية وأسعار مناسبة، مع خدمة عملاء متميزة على مدار الساعة.
             </p>
             <div class="flex items-center gap-4">
-              <a href="#" class="w-12 h-12 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
+              <a href="#" aria-label="فولونا على انستجرام" class="w-12 h-12 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
                 <i class="ph ph-instagram-logo text-2xl"></i>
               </a>
-              <a href="#" class="w-12 h-12 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
+              <a href="#" aria-label="فولونا على تويتر" class="w-12 h-12 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
                 <i class="ph ph-twitter-logo text-2xl"></i>
               </a>
-              <a href="#" class="w-12 h-12 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
+              <a href="#" aria-label="فولونا على فيسبوك" class="w-12 h-12 rounded-full bg-gray-50 hover:bg-indigo-50 flex items-center justify-center text-gray-600 hover:text-amber-900 transition-colors duration-300">
                 <i class="ph ph-facebook-logo text-2xl"></i>
               </a>
             </div>
