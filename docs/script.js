@@ -65,13 +65,25 @@ function startCountdown() {
     // Calculate the time remaining
     const timeRemaining = targetDate - currentDate;
     
+    // Helper function to safely update element
+    function updateElement(id, value) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = value < 10 ? '0' + value : value;
+      }
+    }
+    
     // If countdown is over, clear interval
     if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
-      document.getElementById('days').textContent = '00';
-      document.getElementById('hours').textContent = '00';
-      document.getElementById('minutes').textContent = '00';
-      document.getElementById('seconds').textContent = '00';
+      updateElement('days', 0);
+      updateElement('hours', 0);
+      updateElement('minutes', 0);
+      updateElement('seconds', 0);
+      updateElement('days-2', 0);
+      updateElement('hours-2', 0);
+      updateElement('minutes-2', 0);
+      updateElement('seconds-2', 0);
       return;
     }
     
@@ -81,16 +93,22 @@ function startCountdown() {
     const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
     
-    // Display the result
-    document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-    document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-    document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-    document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+    // Update first countdown section
+    updateElement('days', days);
+    updateElement('hours', hours);
+    updateElement('minutes', minutes);
+    updateElement('seconds', seconds);
+    
+    // Update second countdown section
+    updateElement('days-2', days);
+    updateElement('hours-2', hours);
+    updateElement('minutes-2', minutes);
+    updateElement('seconds-2', seconds);
   }, 1000);
 }
 
 // Start the countdown timer
-if (document.getElementById('days')) {
+if (document.getElementById('days') || document.getElementById('days-2')) {
   startCountdown();
 }
 
