@@ -127,6 +127,18 @@
       scrollbar-width: none;
     }
 
+    /* Shipping Options */
+    .shipping-option {
+      transition: all 0.3s ease;
+    }
+    .shipping-option:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .shipping-option input[type="radio"]:checked + .flex .w-10 {
+      transform: scale(1.1);
+    }
+
     /* Steps Progress Styles */
     .steps-wrap {
       padding: 2rem 1rem;
@@ -434,7 +446,7 @@
                     </div>
                     <div>
                         <h3 class="text-lg font-semibold text-gray-900">Mohammed Tuaymah</h3>
-                        <p class="text-sm text-gray-500">إتمام الطلب / <span class="text-gray-400">ملكة المتميزين ئئئ</span></p>
+                        <p class="text-sm text-gray-500">إتمام الطلب / <span class="text-gray-400">تيشيرت كاجوال</span></p>
                     </div>
                 </div>
                 <div class="bg-white border border-gray-200 rounded-lg px-4 py-2">
@@ -445,9 +457,24 @@
 
         <!-- Order total -->
         <div class="bg-white rounded-2xl shadow-sm p-6 mb-6">
-            <div class="flex justify-between items-center mb-4">
-                <span class="text-2xl font-bold text-gray-900">إجمالي الطلب</span>
-                <span class="text-2xl font-bold text-gray-900">467.99 ريال</span>
+            <div class="space-y-3 mb-4">
+                <!-- Subtotal -->
+                <div class="flex justify-between items-center">
+                    <span class="text-lg text-gray-700">إجمالي المنتجات</span>
+                    <span class="text-lg text-gray-900">467.99 ريال</span>
+                </div>
+                
+                <!-- Shipping Cost -->
+                <div class="flex justify-between items-center">
+                    <span class="text-lg text-gray-700">تكلفة الشحن</span>
+                    <span id="shipping-cost-display" class="text-lg text-gray-900">15.00 ريال</span>
+                </div>
+                
+                <!-- Total -->
+                <div class="flex justify-between items-center pt-3 border-t border-gray-200">
+                    <span class="text-2xl font-bold text-gray-900">المجموع الكلي</span>
+                    <span id="order-total-price" class="text-2xl font-bold text-gray-900">482.99 ريال</span>
+                </div>
             </div>
             <div class="text-red-500 text-sm mb-4">
                 لديك كوبون تخفيض ؟
@@ -477,7 +504,7 @@
                     </div>
                     <span class="text-lg font-semibold text-gray-900">عنوان الشحن</span>
                 </div>
-                <button class="px-4 py-2 border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-2">
+                <button id="edit-address-btn" class="px-4 py-2 border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                     </svg>
@@ -498,14 +525,64 @@
                     </div>
                     <span class="text-lg font-semibold text-gray-900">شركة الشحن</span>
                 </div>
-                <button class="px-4 py-2 border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-2">
+                <button id="edit-shipping-btn" class="px-4 py-2 border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                     </svg>
                     تعديل
                 </button>
             </div>
-            <p class="text-gray-600 text-sm">سياسة لإدارة المخزون, خلال يومين (2) إلى سبعة (9) أيام</p>
+            
+            <!-- Shipping Options -->
+            <div class="space-y-4">
+                <!-- SMSA Option -->
+                <div class="border border-blue-500 bg-blue-50 rounded-lg p-4 cursor-pointer hover:border-blue-300 transition-colors shipping-option" data-company="smsa">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <input type="radio" name="shipping-company" id="smsa" class="w-4 h-4 text-blue-600" checked>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <label for="smsa" class="text-sm font-semibold text-gray-900 cursor-pointer">شركة سمسا</label>
+                                    <p class="text-xs text-gray-500">يومين (2) إلى ثلاثة (3) أيام</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-sm font-bold text-gray-900">15 ريال</span>
+                            <p class="text-xs text-gray-500">شحن سريع</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aramex Option -->
+                <div class="border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-300 transition-colors shipping-option" data-company="aramex">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <input type="radio" name="shipping-company" id="aramex" class="w-4 h-4 text-blue-600">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <label for="aramex" class="text-sm font-semibold text-gray-900 cursor-pointer">شركة أرامكس</label>
+                                    <p class="text-xs text-gray-500">ثلاثة (3) إلى خمسة (5) أيام</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-sm font-bold text-gray-900">12 ريال</span>
+                            <p class="text-xs text-gray-500">شحن اقتصادي</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Payment method -->
@@ -826,6 +903,191 @@
   <!-- User Menu Overlay -->
   <div id="user-overlay" class="hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-40" onclick="toggleUserMenu()"></div>
 
+
+
+  <!-- Address Edit Modal -->
+  <div id="address-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform transition-all">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between p-6 border-b border-gray-200">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold text-gray-900">عنوان الشحن</h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <p class="text-sm text-gray-500">حدد عنوان استلام الطلب واضغط على بيانات الموقع</p>
+          <button id="close-address-modal" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Content -->
+      <div class="p-6 space-y-6">
+        <!-- Saved Addresses -->
+        <div class="space-y-4">
+          <!-- Address 1 -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="address" id="address-1" class="w-4 h-4 text-blue-600" checked>
+                <label for="address-1" class="text-gray-700 text-sm">السعودية - جدة - الصفا - المدينة</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="text-red-500 hover:text-red-600 text-sm flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                  حذف
+                </button>
+                <button class="text-gray-600 hover:text-gray-700 text-sm flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                  تعديل
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Address 2 -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="address" id="address-2" class="w-4 h-4 text-blue-600">
+                <label for="address-2" class="text-gray-700 text-sm">السعودية - جدة - الصفا - أم الفرى، شارع ابن زيتون</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="text-red-500 hover:text-red-600 text-sm flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                  حذف
+                </button>
+                <button class="text-gray-600 hover:text-gray-700 text-sm flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                  تعديل
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add New Address Button -->
+        <button id="add-new-address-btn" class="w-full border-2 border-dashed border-gray-300 rounded-lg p-4 text-gray-600 hover:border-gray-400 hover:text-gray-700 transition-colors flex items-center justify-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+          </svg>
+          إضافة عنوان جديد
+        </button>
+
+        <!-- New Address Form (Initially Hidden) -->
+        <div id="new-address-form" class="hidden space-y-4 border-t border-gray-200 pt-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">إضافة عنوان جديد</h3>
+
+          <!-- Map Section -->
+          <div class="bg-gray-100 rounded-lg p-6 text-center">
+            <div class="flex items-center justify-center gap-2 text-gray-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>حدد عنوانك من الخريطة</span>
+            </div>
+          </div>
+
+          <!-- Address Form -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Country -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                اختر الدولة <span class="text-red-500">*</span>
+              </label>
+              <select class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="السعودية">السعودية</option>
+              </select>
+            </div>
+
+            <!-- City -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                اختر المدينة <span class="text-red-500">*</span>
+              </label>
+              <select class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="">الرياض</option>
+                <option value="">جدة</option>
+                <option value="">الدمام</option>
+              </select>
+            </div>
+
+            <!-- District -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                اختر الحي <span class="text-red-500">*</span>
+              </label>
+              <select class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="">العمل</option>
+                <option value="">الصفا</option>
+                <option value="">المدينة</option>
+              </select>
+            </div>
+
+            <!-- Street -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                الشارع <span class="text-red-500">*</span>
+              </label>
+              <input type="text" placeholder="اسم الشارع" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Postal Code -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                الرمز البريدي (اختياري)
+              </label>
+              <input type="text" placeholder="الرمز البريدي" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- House Description -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                وصف البيت (اختياري)
+              </label>
+              <input type="text" placeholder="وصف البيت" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+          </div>
+
+          <!-- In-store Pickup Option -->
+          <div class="border border-gray-200 rounded-lg p-4">
+            <div class="flex items-center gap-3">
+              <input type="checkbox" id="store-pickup" class="w-4 h-4 text-blue-600">
+              <label for="store-pickup" class="text-sm text-gray-700">استلام الطلب عبر فرعنا أسرع؟</label>
+            </div>
+          </div>
+
+          <!-- Save Button -->
+          <button id="save-new-address-btn" class="w-full bg-black text-white py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+            حفظ
+          </button>
+        </div>
+
+        <!-- Confirm Address Button -->
+        <button id="confirm-address-btn" class="w-full bg-black text-white py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+          تأكيد العنوان
+        </button>
+      </div>
+    </div>
+  </div>
+
   
   <!-- Footer -->
   <footer class="footer bg-gradient-to-br from-[#000000] to-[#000000] opacity-90" style="border-radius: 2rem 2rem 0 0;">
@@ -967,6 +1229,166 @@
     if (e.key === 'Escape' && !searchModal.classList.contains('hidden')) {
       searchModal.classList.add('hidden');
       searchModal.classList.remove('flex');
+    }
+  });
+
+  // Address Modal Functionality
+  const editAddressBtn = document.getElementById('edit-address-btn');
+  const addressModal = document.getElementById('address-modal');
+  const addNewAddressBtn = document.getElementById('add-new-address-btn');
+  const newAddressForm = document.getElementById('new-address-form');
+  const confirmAddressBtn = document.getElementById('confirm-address-btn');
+  const closeAddressModal = document.getElementById('close-address-modal');
+  const saveNewAddressBtn = document.getElementById('save-new-address-btn');
+
+  // Shipping Company Functionality
+  const shippingOptions = document.querySelectorAll('.shipping-option');
+  const shippingRadios = document.querySelectorAll('input[name="shipping-company"]');
+  const orderTotalElement = document.getElementById('order-total-price');
+  const shippingCostElement = document.getElementById('shipping-cost-display');
+  const baseOrderTotal = 467.99; // Base order total without shipping
+
+  // Open address modal
+  editAddressBtn.addEventListener('click', () => {
+    addressModal.classList.remove('hidden');
+  });
+
+  // Close modal when clicking outside
+  addressModal.addEventListener('click', (e) => {
+    if (e.target === addressModal) {
+      addressModal.classList.add('hidden');
+    }
+  });
+
+  // Close modal when clicking close button
+  closeAddressModal.addEventListener('click', () => {
+    addressModal.classList.add('hidden');
+  });
+
+  // Show/hide new address form
+  addNewAddressBtn.addEventListener('click', () => {
+    if (newAddressForm.classList.contains('hidden')) {
+      newAddressForm.classList.remove('hidden');
+      addNewAddressBtn.textContent = 'إخفاء النموذج';
+    } else {
+      newAddressForm.classList.add('hidden');
+      addNewAddressBtn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+        إضافة عنوان جديد
+      `;
+    }
+  });
+
+  // Confirm address and close modal
+  confirmAddressBtn.addEventListener('click', () => {
+    // Get selected address
+    const selectedAddress = document.querySelector('input[name="address"]:checked');
+    if (selectedAddress) {
+      // Update the main address display
+      const addressText = selectedAddress.nextElementSibling.textContent;
+      const mainAddressText = document.querySelector('.text-gray-600.text-sm');
+      mainAddressText.textContent = '- ' + addressText;
+    }
+    
+    // Close modal
+    addressModal.classList.add('hidden');
+    
+    // Reset form if it was open
+    newAddressForm.classList.add('hidden');
+    addNewAddressBtn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+      </svg>
+      إضافة عنوان جديد
+    `;
+  });
+
+  // Save new address
+  saveNewAddressBtn.addEventListener('click', () => {
+    // Hide the form and show success message
+    newAddressForm.classList.add('hidden');
+    addNewAddressBtn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+      </svg>
+      إضافة عنوان جديد
+    `;
+    
+    // Show a temporary success message
+    const successMessage = document.createElement('div');
+    successMessage.className = 'bg-green-50 border border-green-200 rounded-lg p-3 text-green-800 text-sm';
+    successMessage.textContent = 'تم حفظ العنوان بنجاح!';
+    
+    // Insert the success message after the add new address button
+    addNewAddressBtn.parentNode.insertBefore(successMessage, addNewAddressBtn.nextSibling);
+    
+    // Remove the success message after 3 seconds
+    setTimeout(() => {
+      successMessage.remove();
+    }, 3000);
+  });
+
+  // Shipping Company Event Listeners
+  shippingOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const radio = option.querySelector('input[type="radio"]');
+      radio.checked = true;
+      updateShippingSelection();
+      updateOrderTotal();
+    });
+  });
+
+  shippingRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      updateShippingSelection();
+      updateOrderTotal();
+    });
+  });
+
+  function updateShippingSelection() {
+    // Remove active state from all options
+    shippingOptions.forEach(option => {
+      option.classList.remove('border-blue-500', 'bg-blue-50');
+      option.classList.add('border-gray-200');
+    });
+
+    // Add active state to selected option
+    const selectedRadio = document.querySelector('input[name="shipping-company"]:checked');
+    if (selectedRadio) {
+      const selectedOption = selectedRadio.closest('.shipping-option');
+      selectedOption.classList.remove('border-gray-200');
+      selectedOption.classList.add('border-blue-500', 'bg-blue-50');
+    }
+  }
+
+  function updateOrderTotal() {
+    const selectedRadio = document.querySelector('input[name="shipping-company"]:checked');
+    let shippingCost = 0;
+    
+    if (selectedRadio) {
+      const company = selectedRadio.closest('.shipping-option').dataset.company;
+      shippingCost = company === 'smsa' ? 15 : 12; // SMSA: 15 SAR, Aramex: 12 SAR
+    }
+    
+    const newTotal = baseOrderTotal + shippingCost;
+    
+    // Update shipping cost display
+    shippingCostElement.textContent = shippingCost.toFixed(2) + ' ريال';
+    
+    // Update total price
+    orderTotalElement.textContent = newTotal.toFixed(2) + ' ريال';
+  }
+
+  // Initialize shipping selection on page load
+  updateShippingSelection();
+  updateOrderTotal();
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !addressModal.classList.contains('hidden')) {
+      addressModal.classList.add('hidden');
     }
   });
   </script>
