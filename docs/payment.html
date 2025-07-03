@@ -409,171 +409,162 @@
         
   </header>
 
-    <div class="container mx-auto px-4 py-8">
-        <!-- Steps Progress -->
-        <div class="steps-wrap">
-            <ul class="step-tabs">
-                <li class="step-tab completed">
-                    <a href="cart.html" class="step-tab-link">
-                        <span class="step-tab-text">
-                            <span class="bg-text"></span>
-                            عربة التسوق
-                        </span>
-                    </a>
-                </li>
-                <li class="step-tab active">
-                    <span class="step-tab-text">
-                        <span class="bg-text"></span>
-                        الدفع
-                    </span>
-                </li>
-                <li class="step-tab">
-                    <span class="step-tab-text">
-                        <span class="bg-text"></span>
-                        الطلب مكتمل
-                    </span>
-                </li>
-            </ul>
+    <!-- Top notification bar -->
+    <div class="bg-gray-100 border-b border-gray-200 px-4 py-3 text-center">
+        <div class="flex items-center justify-center gap-2">
+            <span class="text-sm text-gray-700">احصل على توصيل مجاني على جميع الطلبات فوق 259 ريال</span>
+            <button class="text-gray-500 hover:text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+
+    <!-- Main payment container -->
+    <div class="container mx-auto px-4 py-8 max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
+        <!-- Customer info header -->
+        <div class="bg-white rounded-2xl shadow-sm p-6 mb-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
+                        <span class="text-lg font-semibold text-gray-600">M</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900">Mohammed Tuaymah</h3>
+                        <p class="text-sm text-gray-500">إتمام الطلب / <span class="text-gray-400">ملكة المتميزين ئئئ</span></p>
+                    </div>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-lg px-4 py-2">
+                    <span class="text-lg font-bold text-gray-900">Azzad</span>
+                </div>
+            </div>
         </div>
 
-        <form id="payment-form" class="space-y-6">
-            <!-- Shipping Address -->
-            <div class="bg-white rounded-2xl shadow-sm p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white">
-                            <i class="ph ph-map-pin"></i>
-                        </div>
-                        <h3 class="mr-4 text-xl font-semibold">العنوان الوطني</h3>
-                    </div>
-                    <button type="button" class="cart-btn px-4 py-2 rounded-lg text-white">
-                        إضافة
-                    </button>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="form-group">
-                        <label class="block text-gray-700 mb-2">الاسم الأول<span class="text-red-500">*</span></label>
-                        <input type="text" class="w-full border rounded-lg p-2" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="block text-gray-700 mb-2">الاسم الأخير<span class="text-red-500">*</span></label>
-                        <input type="text" class="w-full border rounded-lg p-2" required>
-                    </div>
-                </div>
+        <!-- Order total -->
+        <div class="bg-white rounded-2xl shadow-sm p-6 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-2xl font-bold text-gray-900">إجمالي الطلب</span>
+                <span class="text-2xl font-bold text-gray-900">467.99 ريال</span>
             </div>
-
-            <!-- Shipping Method -->
-            <div class="bg-white rounded-2xl shadow-sm p-6">
-                <div class="flex items-center mb-6">
-                    <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white">
-                        <i class="ph ph-truck"></i>
-                    </div>
-                    <h3 class="mr-4 text-xl font-semibold">طريقة الشحن</h3>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="payment-method-card">
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center">
-                                <input type="radio" name="shipping" class="ml-3">
-                                <img src="img/aramex.png" alt="Aramex" class="w-16 h-auto">
-                                <span class="mr-3">شحن سريع (1-3 أيام)</span>
-                            </div>
-                            <span class="font-semibold">25 ريال</span>
-                        </div>
-                    </div>
-                    <div class="payment-method-card">
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center">
-                                <input type="radio" name="shipping" class="ml-3">
-                                <img src="img/smsa.png" alt="SMSA" class="w-16 h-auto">
-                                <span class="mr-3">شحن عادي (3-5 أيام)</span>
-                            </div>
-                            <span class="font-semibold">15 ريال</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-red-500 text-sm mb-4">
+                لديك كوبون تخفيض ؟
             </div>
-
-            <!-- Order Summary -->
-            <div class="bg-white rounded-2xl shadow-sm p-6">
-                <div class="flex items-center mb-6">
-                    <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white">
-                        <i class="ph ph-file-text"></i>
-                    </div>
-                    <h3 class="mr-4 text-xl font-semibold">ملخص الطلب</h3>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="flex justify-between pb-4 border-b">
-                        <span>المجموع الفرعي</span>
-                        <span>299 ريال</span>
-                    </div>
-                    <div class="flex justify-between pb-4 border-b">
-                        <span>الشحن</span>
-                        <span>25 ريال</span>
-                    </div>
-                    <div class="flex justify-between text-lg font-bold">
-                        <span>الإجمالي</span>
-                        <span>324 ريال</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Payment Method -->
-            <div class="bg-white rounded-2xl shadow-sm p-6">
-                <div class="flex items-center mb-6">
-                    <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white">
-                        <i class="ph ph-credit-card"></i>
-                    </div>
-                    <h3 class="mr-4 text-xl font-semibold">طريقة الدفع</h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="payment-method-card">
-                        <input type="radio" name="payment" class="ml-3">
-                        <img src="img/mada.png" alt="Mada" class="w-20 h-auto inline-block">
-                    </div>
-                    <div class="payment-method-card">
-                        <input type="radio" name="payment" class="ml-3">
-                        <img src="img/visa.png" alt="Visa/Mastercard" class="w-20 h-auto inline-block">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                    <div class="form-group">
-                        <label class="block text-gray-700 mb-2">رقم البطاقة</label>
-                        <input type="text" class="w-full border rounded-lg p-2" placeholder="**** **** **** ****">
-                    </div>
-                    <div class="form-group">
-                        <label class="block text-gray-700 mb-2">الاسم على البطاقة</label>
-                        <input type="text" class="w-full border rounded-lg p-2">
-                    </div>
-                    <div class="form-group">
-                        <label class="block text-gray-700 mb-2">تاريخ الانتهاء</label>
-                        <input type="text" class="w-full border rounded-lg p-2" placeholder="MM/YY">
-                    </div>
-                    <div class="form-group">
-                        <label class="block text-gray-700 mb-2">رمز الأمان (CVV)</label>
-                        <input type="text" class="w-full border rounded-lg p-2" placeholder="***">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Terms and Submit -->
-            <div class="bg-white rounded-2xl shadow-sm p-6">
-                <div class="flex items-center mb-4">
-                    <input type="checkbox" id="terms" class="ml-2">
-                    <label for="terms">
-                        أوافق على <a href="#" class="text-black hover:text-amber-900">الشروط والأحكام</a>
-                    </label>
-                </div>
-                <button type="submit" class="w-full cart-btn py-3 rounded-lg font-semibold text-white hover:opacity-90 transition-all duration-300 transform hover:-translate-y-0.5">
-                    إتمام الطلب
+            <div class="flex gap-2">
+                <input type="text" placeholder="أدخل رمز الكوبون" class="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button class="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
+                    تطبيق
                 </button>
             </div>
-        </form>
+            <div class="mt-4">
+                <select class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option>تفاصيل الفاتورة</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Shipping address -->
+        <div class="bg-white rounded-2xl shadow-sm p-6 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <span class="text-lg font-semibold text-gray-900">عنوان الشحن</span>
+                </div>
+                <button class="px-4 py-2 border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    تعديل
+                </button>
+            </div>
+            <p class="text-gray-600 text-sm">- السعودية - جدة - الصفا - المدينة</p>
+        </div>
+
+        <!-- Shipping company -->
+        <div class="bg-white rounded-2xl shadow-sm p-6 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                    </div>
+                    <span class="text-lg font-semibold text-gray-900">شركة الشحن</span>
+                </div>
+                <button class="px-4 py-2 border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    تعديل
+                </button>
+            </div>
+            <p class="text-gray-600 text-sm">سياسة لإدارة المخزون, خلال يومين (2) إلى سبعة (9) أيام</p>
+        </div>
+
+        <!-- Payment method -->
+        <div class="bg-white rounded-2xl shadow-sm p-6 mb-6">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
+                </div>
+                <span class="text-lg font-semibold text-gray-900">الدفع</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">مدى</p>
+            
+            <!-- Payment method selection -->
+            <div class="mb-4">
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                        <input type="radio" id="change-method" name="payment-method" class="w-4 h-4 text-blue-600">
+                        <label for="change-method" class="text-sm text-gray-700">تغيير طريقة الدفع</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-6 bg-blue-600 rounded-sm"></div>
+                        <div class="w-8 h-6 bg-green-600 rounded-sm"></div>
+                        <span class="text-sm font-semibold">مدى</span>
+                        <input type="radio" id="mada" name="payment-method" class="w-4 h-4 text-blue-600" checked>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card details form -->
+            <div class="space-y-4">
+                <!-- Card number -->
+                <div>
+                    <label for="card-number" class="block text-sm font-medium text-gray-700 mb-2">رقم البطاقة</label>
+                    <input type="text" id="card-number" placeholder="رقم البطاقة" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- CVC and Expiry -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="cvc" class="block text-sm font-medium text-gray-700 mb-2">رمز التحقق (CVC)</label>
+                        <input type="text" id="cvc" placeholder="(CVC) رمز التحقق" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="expiry" class="block text-sm font-medium text-gray-700 mb-2">تاريخ الانتهاء</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" placeholder="شهر" class="w-full px-3 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input type="text" placeholder="سنة" class="w-full px-3 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirm payment button -->
+        <button type="submit" class="w-full bg-black text-white py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-colors shadow-md">
+            تأكيد الدفع
+        </button>
     </div>
 
   <!-- Quick View Modal -->
